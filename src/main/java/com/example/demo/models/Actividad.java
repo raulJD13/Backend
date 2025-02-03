@@ -1,8 +1,11 @@
-package com.example.demo;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "actividad")
 public class Actividad {
 
     @Id
@@ -43,12 +46,23 @@ public class Actividad {
     @JoinColumn(name = "id_deporte", nullable = false)
     private Deporte deporte;
 
+    @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Comentario> comentarios;
+
     public Actividad() {
     }
 
     // Getters y setters
     public Long getIdActividad() {
         return idActividad;
+    }
+
+    public List<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(List<Comentario> comentarios) {
+        this.comentarios = comentarios;
     }
 
     public void setIdActividad(Long idActividad) {
