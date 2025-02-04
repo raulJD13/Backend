@@ -1,6 +1,9 @@
-package com.example.demo;
+package com.example.demo.models;
 
 import jakarta.persistence.*;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Actividad {
@@ -43,6 +46,17 @@ public class Actividad {
     @JoinColumn(name = "id_deporte", nullable = false)
     private Deporte deporte;
 
+    // Relación ManyToMany con Usuario
+    @ManyToMany
+    @JsonBackReference // Evita la recursividad infinita en la otra parte de la relación
+    @JoinTable(
+        name = "usuarioactividad", // Nombre de la tabla intermedia
+        joinColumns = @JoinColumn(name = "actividad_id"), // Llave foránea hacia Actividad
+        inverseJoinColumns = @JoinColumn(name = "usuario_id") // Llave foránea hacia Usuario
+    )
+    private Set<Usuario> usuarios; // La lista de usuarios que están asociados a esta actividad
+
+    // Constructores
     public Actividad() {
     }
 
@@ -175,8 +189,15 @@ public class Actividad {
         this.deporte = deporte;
     }
 
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
     public enum Dificultad {
         facil, intermedia, dificil;
     }
-
 }
