@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controllers;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

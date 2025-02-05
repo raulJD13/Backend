@@ -2,11 +2,15 @@ package com.example.demo.models;
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,39 +22,45 @@ public class Usuario {
 
     private String localizacion;
 
-    @Column(nullable = false)
-    private String contraseña;
+    @Column(nullable = false,name = "contraseña")
+    private String contrasena;
 
     private String fotoPerfil;
     private String fotoFondoPerfil;
 
-    @Column(nullable = false)
-    private String token;
-
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comentario> comentarios = new ArrayList<>();
-
-
-
-    // Constructores, getters y setters
-    public Usuario() {
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return new ArrayList<>(); // Aquí podrías agregar roles en un futuro
     }
 
-    public Usuario(String email, String localizacion, String contraseña, String fotoPerfil, String fotoFondoPerfil, String token) {
-        this.email = email;
-        this.localizacion = localizacion;
-        this.contraseña = contraseña;
-        this.fotoPerfil = fotoPerfil;
-        this.fotoFondoPerfil = fotoFondoPerfil;
-        this.token = token;
+    @Override
+    public String getPassword() {
+        return contrasena;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    @Override
+    public String getUsername() {
+        return email;
     }
 
-    public String getToken() {
-        return token;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public Long getIdUsuario() {
@@ -77,12 +87,12 @@ public class Usuario {
         this.localizacion = localizacion;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public String getFotoPerfil() {
@@ -99,7 +109,6 @@ public class Usuario {
 
     public void setFotoFondoPerfil(String fotoFondoPerfil) {
         this.fotoFondoPerfil = fotoFondoPerfil;
-
     }
 
 }

@@ -1,13 +1,13 @@
 
-package com.example.demo;
+package com.example.demo.services;
 
+
+import com.example.demo.repository.DeporteRepository;
+import com.example.demo.models.Deporte;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import com.example.demo.Deporte;
-import com.example.demo.DeporteRepository;
 
 @Service
 public class DeporteService {
