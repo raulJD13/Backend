@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/deportes")
-@CrossOrigin(origins = "http://localhost:8100")
+@CrossOrigin(origins = "http://localhost:8100\"", allowCredentials = "true")
 public class DeporteController {
 
     @Autowired

@@ -23,6 +23,11 @@ public class UsuarioService {
             new RuntimeException("Usuario no encontrado con id: " + id));
     }
 
+    // Buscar un usuario por email (para autenticación)
+    public Usuario findByEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+
     // Crear un nuevo usuario
     public Usuario createUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
