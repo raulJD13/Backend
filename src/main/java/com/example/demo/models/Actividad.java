@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Actividad {
@@ -48,7 +49,7 @@ public class Actividad {
 
     // Relación ManyToMany con Usuario
     @ManyToMany
-    @JsonBackReference // Evita la recursividad infinita en la otra parte de la relación
+   @JsonIgnore
     @JoinTable(
         name = "usuarioactividad", // Nombre de la tabla intermedia
         joinColumns = @JoinColumn(name = "actividad_id"), // Llave foránea hacia Actividad

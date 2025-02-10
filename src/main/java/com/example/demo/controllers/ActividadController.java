@@ -14,6 +14,11 @@ public class ActividadController {
     @Autowired
     private ActividadService actividadService;
 
+    
+    @GetMapping
+    public List<Actividad> getAllActividades() {
+        return actividadService.getAllActividades();
+    }
     // Obtener actividades por deporte
     @GetMapping("/deporte/{idDeporte}")
     public List<Actividad> getActividadesByDeporte(@PathVariable Long idDeporte) {

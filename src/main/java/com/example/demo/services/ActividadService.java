@@ -1,11 +1,8 @@
 package com.example.demo.services;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.demo.models.Actividad;
 import com.example.demo.repository.ActividadRepository;
 
@@ -14,6 +11,11 @@ public class ActividadService {
 
     @Autowired
     private ActividadRepository actividadRepository;
+
+    // Obtener todas las actividades
+    public List<Actividad> getAllActividades() {
+        return actividadRepository.findAll();
+    }
 
     // Obtener actividades por deporte
     public List<Actividad> getActividadesByDeporte(Long idDeporte) {

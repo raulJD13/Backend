@@ -3,6 +3,7 @@ package com.example.demo.models;
 import jakarta.persistence.*;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -34,7 +35,7 @@ public class Usuario {
 
     // Relación muchos a muchos con Actividad
     @ManyToMany
-    @JsonManagedReference // Evita la recursividad infinita al serializar
+    @JsonIgnore
     @JoinTable(
         name = "usuarioactividad", // Nombre de la tabla intermedia
         joinColumns = @JoinColumn(name = "usuario_id"), // Llave foránea hacia Usuario
