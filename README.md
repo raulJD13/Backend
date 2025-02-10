@@ -1,53 +1,100 @@
-ESQUEMA de apartados para la 
-documentación del Proyecto.
+# Documentación del Proyecto
 
+## Índice
+1. Introducción / Descripción
+2. Diagramas y Modelo de Datos
+3. Requisitos de Usuario
+4. Casos de Uso
+5. Descripción del Funcionamiento y Especificaciones Técnicas
+6. Interfaces
+    - Diseño Inicial: Mokups y Prototipado
+    - Usabilidad y Accesibilidad
+7. Manuales
+    - Manual de Instalación para Desarrolladores
+    - Manual de Instalación para Técnicos
+    - Manual de Usuario
+    - Ayuda dentro de la App
+8. Tests de Prueba
+    - Backend
+    - Frontend
+9. Pila Tecnológica
+10. Comparación de Tecnologías
+11. Repositorios
+12. Planificación y Organización
+13. Conclusiones y Reflexiones
+14. Enlaces y Referencias
 
-Portada   +  MÍndice
-Cada página debe llevar encabezado, pie de página, y números de páginas.
+## 1. Introducción / Descripción
+- **Origen de la necesidad**: [Describir el motivo del proyecto]
+- **Empresa destinataria**: [Empresa o sector para el que se desarrolla]
+- **Resumen del desarrollo**: [Explicación breve en dos párrafos]
+- **Otros aspectos relevantes**
 
-Antiguamente se hacía en pdf, pero ahora se añade al readme del Github.
+## 2. Diagramas y Modelo de Datos
+- Justificación y explicación del modelo de datos.
+- Diagramas de clases, entidad-relación, etc.
+- Referencia a archivos del módulo "Acceso a Datos".
 
+## 3. Requisitos de Usuario
+- Definición de requisitos generales y especificación inicial de casos de uso.
+- Evolución de los requisitos a lo largo del proceso.
+- Producto resultante: listado de requisitos generales y casos de uso iniciales.
 
+## 4. Casos de Uso
+- Descripción detallada de los casos de uso del sistema.
 
-    1. Pequeña introducción/ descripción.  		 ( ½ Página)
-    • De donde surge la necesidad
-    • Para que empresa se desarrolla
-    • Cual es la idea resumida ( máximo dos párrafos) del desarrollo
-    • Otros
-    2. Diagramas, su justificación. Explicación del “Modelo de Datos”
-        ◦ Ver apartado Documentación modelo de datos   Archivo  del módulo "Acceso a Datos/ Recursos Proyecto Integración AED.    ( ... de clases, entidad/relación, … otros)
-    3. Requisitos de Usuario.
-        ◦ Su objetivo principal es comenzar a definir el sistema software (la solución) que satisfaga las necesidades de negocio de clientes y usuarios (el problema). Para ello, se definen los requisitos generales y se comienzan a especificar los casos de uso del sistema  en su versión inicial. Conforme avance el proceso de ingeniería de requisitos, los requisitos generales se irán detallando en requisitos más específicos y los casos de uso que se considere oportuno irán evolucionando hacia su forma detallada.
-Salida / lo que sepide:     Requisitos generales del sistema, principal producto resultante de esta tarea junto con la versión inicial de los casos de uso. Deben especificar las características principales del sistema a desarrollar.
-    4. Casos de Usos
-    5. Describir el funcionamiento del sistema y especificaciones técnicas para la aplicación del servidor y las APP's móvil y web.
-        ◦ Añadir en esta descripción algún elemento visual que esplique el esquema y las relaciones ( por ejemplo un mapa conceptual)
-    6. Interfaces: 
-        1. Diseño Inicial:     Mokups y prototipado  
-    • Añade enlace compartido con la herramienta usada para el prototipado.
-           
-        2. Usabilidad y Accesibilidad
-    • Lista de aspectos de la rúbrica de Usabilidad que vas a tener en cuenta.
-    • Para cada aspecto: Justificar porqué lo vas a diseñar así, qué vas a tener en cuenta.
-    • Cual es el proceso seguido para estudiar la Usabilidad y la Accesibilidad, previo al desarrollo
-    • Una vez se ha desarrollado la aplicación: 
-    • Añadir la lista con descripciones e imagen demostrativa de nuestra app, en la que se aplican los aspectos de usabilidad de cada aspecto.
-    • En el módulo de ADD tienes un ejemplo de cómo sería bien hecho y cómo mal hecho.
-      
-    7. Manuales
-    1. Manual de instalación para el desarrollador/s ( tanto servidor como cliente)
-    2. Manual de instalación para los técnicos que van a instalar la aplicación al cliente que compre la Aplicación.
-    3. Manual de la persona usuaria
-    4. Ayuda a usuario dentro de la App. Accesible desde la App.
-    8. Test de prueba para Backend
-    9. Test de prueba para Fronted
-    10. Pila tecnológica
-    11. Comparación de tecnologías   	                                        			
-    12. Repositorios
-    13. Planificación: Explica como te has organizado y planificado   
-    14. Conclusiones, opiniones, reflexiones   ( auténticas y no lo hagan por rellenar)     
-    15. Enlaces y referencias
+## 5. Descripción del Funcionamiento y Especificaciones Técnicas
+- Explicación del sistema.
+- Especificaciones técnicas del servidor y de las aplicaciones web y móvil.
+- Elementos visuales como mapas conceptuales.
 
-ANEXOS
-    • Recomendamos completar este esquema con la plantilla de Plantilla funciones del sistema (modelo ERS) Archivo que encontrarás en el módulo de "Acceso a Datos". 
-    • En ese documento puedes resolver dudas sobre "requisitos de usuario" y otros aspectos que puedes encontrar en cada apartado.
+## 6. Interfaces
+### 6.1 Diseño Inicial: Mokups y Prototipado
+- Enlace compartido con la herramienta usada para el prototipado.
+
+### 6.2 Usabilidad y Accesibilidad
+- Aspectos clave de usabilidad considerados.
+- Justificación del diseño en base a estos aspectos.
+- Proceso de estudio previo de usabilidad y accesibilidad.
+- Evaluación post-desarrollo con ejemplos visuales.
+
+## 7. Manuales
+### 7.1 Manual de Instalación
+- Para desarrolladores (servidor y cliente).
+- Para técnicos que instalan la aplicación.
+
+### 7.2 Manual de Usuario
+- Explicación del uso de la aplicación.
+
+### 7.3 Ayuda dentro de la App
+- Instrucciones accesibles desde la propia aplicación.
+
+## 8. Tests de Prueba
+### 8.1 Backend
+- Pruebas realizadas para garantizar el correcto funcionamiento del servidor.
+
+### 8.2 Frontend
+- Pruebas realizadas para asegurar la estabilidad y usabilidad de la interfaz.
+
+## 9. Pila Tecnológica
+- Tecnologías utilizadas en el desarrollo del proyecto.
+
+## 10. Comparación de Tecnologías
+- Comparación de alternativas tecnológicas y justificación de las elecciones.
+
+## 11. Repositorios
+- Enlaces a los repositorios del proyecto.
+
+## 12. Planificación y Organización
+- Explicación sobre la metodología de organización y planificación.
+
+## 13. Conclusiones y Reflexiones
+- Opiniones auténticas sobre el desarrollo del proyecto.
+
+## 14. Enlaces y Referencias
+- Bibliografía, documentación y recursos utilizados.
+
+## Anexos
+- Plantilla de funciones del sistema (modelo ERS).
+- Documentos adicionales de referencia.
+
