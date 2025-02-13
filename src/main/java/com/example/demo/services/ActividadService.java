@@ -4,7 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.models.Actividad;
+import com.example.demo.models.Deporte;
 import com.example.demo.repository.ActividadRepository;
+import com.example.demo.repository.DeporteRepository;
 
 @Service
 public class ActividadService {
@@ -28,11 +30,24 @@ public class ActividadService {
             new RuntimeException("Actividad no encontrada con id: " + id));
     }
 
-    // Crear una nueva actividad
+    @Autowired
+    private DeporteRepository deporteRepository; // Repositorio para buscar deportes
+
     public Actividad createActividad(Actividad actividad) {
+        if (actividad.getDeporte() == null || actividad.getDeporte().getIdDeporte() == null) {
+            throw new RuntimeException("El campo deporte no puede ser nulo.");
+        }
+
+        // Buscar el deporte en la base de datos
+        Deporte deporte = deporteRepository.findById(actividad.getDeporte().getIdDeporte())
+            .orElseThrow(() -> new RuntimeException("Deporte no encontrado con id: " + actividad.getDeporte().getIdDeporte()));
+
+        // Asignar el deporte a la actividad antes de guardarla
+        actividad.setDeporte(deporte);
+
+        // Guardar la actividad
         return actividadRepository.save(actividad);
     }
-
     // Actualizar una actividad existente
     public Actividad updateActividad(Long id, Actividad actividad) {
         Actividad actividadExistente = actividadRepository.findById(id).orElseThrow(() ->
