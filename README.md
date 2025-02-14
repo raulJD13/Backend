@@ -24,6 +24,8 @@
 13. Conclusiones y Reflexiones
 14. Enlaces y Referencias
 
+---
+
 ## 1. Introducción / Descripción
 
 ### Origen de la necesidad
@@ -42,6 +44,8 @@ La aplicación cuenta con funcionalidades clave como registro e inicio de sesió
 - **Flexibilidad**: Se pueden organizar eventos tanto gratuitos como de pago, ampliando las opciones para los usuarios y las empresas.
 - **Interfaz intuitiva**: Diseñada para ser fácil de usar, con opciones rápidas para encontrar y unirse a actividades.
 - **Accesibilidad**: Disponible para dispositivos móviles, con integración de redes sociales para un acceso rápido y sencillo.
+
+---
 
 ## 2. Diagramas y Modelo de Datos
 ### Justificación y explicación del modelo de datos
@@ -195,7 +199,6 @@ CREATE TABLE UsuarioActividad (
 ### **Evolución de los requisitos a lo largo del proceso**
 Los requisitos pueden evolucionar según la retroalimentación de los usuarios, permitiendo la adición de nuevas funcionalidades como:
 - Filtros avanzados para la búsqueda de actividades.
-- Integración con dispositivos wearables para el monitoreo de actividad física.
 
 ### **Producto resultante: listado de requisitos generales y casos de uso iniciales**
 - **Registro/Login**: Autenticación mediante email/contraseña o redes sociales.
@@ -208,10 +211,14 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 ## 4. Casos de Uso
 - Descripción detallada de los casos de uso del sistema.
 
+---
+
 ## 5. Descripción del Funcionamiento y Especificaciones Técnicas
 - Explicación del sistema.
 - Especificaciones técnicas del servidor y de las aplicaciones web y móvil.
 - Elementos visuales como mapas conceptuales.
+
+---
 
 ## 6. Interfaces
 ### 6.1 Diseño Inicial: Mokups y Prototipado
@@ -222,6 +229,8 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 - Justificación del diseño en base a estos aspectos.
 - Proceso de estudio previo de usabilidad y accesibilidad.
 - Evaluación post-desarrollo con ejemplos visuales.
+
+---
 
 ## 7. Manuales
 ### 7.1 Manual de Instalación
@@ -234,6 +243,8 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 ### 7.3 Ayuda dentro de la App
 - Instrucciones accesibles desde la propia aplicación.
 
+---
+
 ## 8. Tests de Prueba
 ### 8.1 Backend
 - Pruebas realizadas para garantizar el correcto funcionamiento del servidor.
@@ -241,22 +252,34 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 ### 8.2 Frontend
 - Pruebas realizadas para asegurar la estabilidad y usabilidad de la interfaz.
 
+---
+
 ## 9. Pila Tecnológica
 - Tecnologías utilizadas en el desarrollo del proyecto.
 
+---
+
 ## 10. Comparación de Tecnologías
 - Comparación de alternativas tecnológicas y justificación de las elecciones.
+
+---
 
 ## 11. Repositorios
 - FrontEnd: https://github.com/raulJD13/Frontend.git
 - BackEnd: https://github.com/raulJD13/Backend.git
 - Proyecto en react: https://github.com/raulJD13/TerraSplash2.0.git
 
+---
+
 ## 12. Planificación y Organización
 - Explicación sobre la metodología de organización y planificación.
 
+---
+
 ## 13. Conclusiones y Reflexiones
 - Opiniones auténticas sobre el desarrollo del proyecto.
+
+---
 
 ## 14. Enlaces y Referencias
 - Bibliografía, documentación y recursos utilizados.
