@@ -681,12 +681,62 @@ describe("Title Component", () => {
 ---
 
 ## 9. Pila Tecnológica
-- Tecnologías utilizadas en el desarrollo del proyecto.
+
+Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
+
+### 1. **Java 17**
+Java 17 es la versión LTS más reciente de Java, lo que proporciona estabilidad a largo plazo. Se eligió Java 17 por su rendimiento, nuevas características como `Pattern Matching`, `Sealed Classes` y mejoras en la gestión de memoria, lo cual es ideal para aplicaciones empresariales de alta demanda. Además, al ser una versión LTS, asegura actualizaciones y soporte durante varios años, lo que la convierte en una opción confiable y segura.
+
+### 2. **Spring Boot 2.7**
+Spring Boot 2.7 fue elegido por su capacidad para simplificar la configuración y el desarrollo de aplicaciones Java basadas en Spring. Spring Boot es una de las soluciones más populares para el desarrollo de aplicaciones backend, y permite crear servicios RESTful de forma eficiente, con mínima configuración. La versión 2.7 incluye mejoras de rendimiento, soporte para Java 17, actualizaciones de seguridad, y nuevas funcionalidades para facilitar el desarrollo de aplicaciones robustas y escalables.
+
+### 3. **JPA (Hibernate)**
+Hibernate, a través de Java Persistence API (JPA), es el marco de trabajo utilizado para la persistencia de datos. JPA simplifica el trabajo con bases de datos relacionales al permitir que las operaciones CRUD (Crear, Leer, Actualizar, Eliminar) se realicen de manera sencilla mediante objetos Java, sin necesidad de escribir consultas SQL complejas. Hibernate, como implementación de JPA, proporciona características avanzadas como el manejo de transacciones, el caching de entidades y la optimización de las consultas.
+
+### 4. **MySQL**
+MySQL fue elegido como sistema de gestión de bases de datos debido a su popularidad, fiabilidad y facilidad de integración con Java y Spring Boot. Es una base de datos relacional de código abierto ampliamente utilizada en aplicaciones web y sistemas de producción. Además, MySQL ofrece alta disponibilidad, replicación de bases de datos y soporte para operaciones transaccionales, lo que lo hace adecuado para aplicaciones que requieren consistencia y robustez.
+
+### 5. **Maven**
+Maven es la herramienta de gestión de dependencias utilizada en este proyecto. Permite gestionar las bibliotecas y frameworks necesarios para el proyecto de manera eficiente, así como facilitar la construcción y el empaquetado del proyecto. Maven también se utiliza para automatizar la gestión del ciclo de vida del proyecto (compilación, pruebas, empaquetado, etc.), asegurando que las dependencias estén correctamente gestionadas y actualizadas.
 
 ---
 
 ## 10. Comparación de Tecnologías
-- Comparación de alternativas tecnológicas y justificación de las elecciones.
+
+### **Java 17 vs Otras versiones de Java (Java 8, 11, etc.)**
+- **Java 8**: Java 8 fue una versión muy importante, introduciendo características como expresiones lambda y Streams. Sin embargo, Java 17 ofrece mejoras significativas en términos de rendimiento, nuevas características y soporte extendido. Java 17 es la versión recomendada para aplicaciones a largo plazo debido a su estabilidad y soporte.
+- **Java 11**: Java 11 es también una versión LTS, pero Java 17 trae nuevas características como `sealed classes` y mejoras de rendimiento en el Garbage Collector que no están presentes en Java 11.
+
+**Justificación de Elección**: Optamos por Java 17 por su rendimiento mejorado, características avanzadas y soporte a largo plazo (LTS), lo que asegura que la aplicación se mantenga actualizada y compatible con nuevas versiones del JDK.
+
+### **Spring Boot 2.7 vs Spring Boot 2.5/2.6**
+- **Spring Boot 2.5/2.6**: Estas versiones también ofrecen capacidades poderosas para crear aplicaciones web y servicios RESTful, pero no incluyen algunas de las nuevas características y mejoras de rendimiento presentes en la versión 2.7.
+- **Spring Boot 2.7**: Ofrece soporte para Java 17, mejoras de seguridad, optimización de rendimiento y nuevas características como `Spring Security 5.8`, lo que permite desarrollar aplicaciones más seguras y rápidas.
+
+**Justificación de Elección**: Elegimos Spring Boot 2.7 debido a su compatibilidad con Java 17 y su conjunto de características adicionales que mejoran la seguridad y el rendimiento, lo que es fundamental para la estabilidad de la API.
+
+### **JPA (Hibernate) vs JDBC**
+- **JDBC**: Es una forma de interactuar directamente con bases de datos utilizando SQL en el código Java. Requiere más esfuerzo para la gestión de conexiones y transacciones.
+- **JPA (Hibernate)**: JPA simplifica la persistencia de datos mediante la abstracción de las interacciones con la base de datos, permitiendo que las operaciones se realicen con objetos Java en lugar de consultas SQL explícitas. Hibernate ofrece características avanzadas como el manejo de caché, optimización de consultas y facilidad de integración con Spring.
+
+**Justificación de Elección**: JPA con Hibernate fue elegido por su capacidad de simplificar la persistencia de datos y automatizar la gestión de transacciones, lo que reduce la cantidad de código repetitivo y facilita el desarrollo de la API.
+
+### **MySQL vs PostgreSQL**
+- **PostgreSQL**: Es una base de datos relacional muy potente, con un enfoque en la consistencia de los datos y la compatibilidad con transacciones ACID. Es ideal para aplicaciones que requieren características avanzadas como el soporte de JSON y tipos de datos personalizados.
+- **MySQL**: Si bien PostgreSQL es muy poderoso, MySQL sigue siendo una opción más ligera y fácil de gestionar para aplicaciones con menos necesidades complejas de bases de datos. MySQL también ofrece una excelente integración con Java y Spring.
+
+**Justificación de Elección**: Se eligió MySQL por su simplicidad, fiabilidad y facilidad de integración con Java y Spring, además de ser ampliamente utilizado y documentado.
+
+### **Maven vs Gradle**
+- **Gradle**: Gradle es otra herramienta popular de gestión de dependencias y construcción, conocida por su flexibilidad y rendimiento superior en proyectos más grandes.
+- **Maven**: Maven es más estructurado y tiene una curva de aprendizaje más baja, siendo ampliamente utilizado en proyectos de Java y Spring Boot.
+
+**Justificación de Elección**: Maven fue elegido debido a su simplicidad, la vasta comunidad que lo respalda, y su integración sin problemas con Spring Boot, permitiendo una configuración sencilla y efectiva.
+
+---
+
+Esta comparación de tecnologías fue realizada para garantizar la elección de las herramientas más adecuadas y eficientes para el desarrollo de esta API. Las elecciones fueron tomadas con el objetivo de ofrecer una solución robusta, escalable y fácil de mantener en el futuro.
+
 
 ---
 
