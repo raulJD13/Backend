@@ -338,7 +338,184 @@ El sistema permite la creación, gestión y participación en actividades deport
 - Pruebas realizadas para garantizar el correcto funcionamiento del servidor.
 
 ### 8.2 Frontend
-- Pruebas realizadas para asegurar la estabilidad y usabilidad de la interfaz.
+
+#### Pruebas realizadas para asegurar la estabilidad y usabilidad de la interfaz
+
+##### Herramienta de Test
+
+Para realizar las pruebas de la aplicación, se eligió la biblioteca Testing Library junto con Jest.
+
+- **Testing Library**: Una herramienta enfocada en realizar pruebas basadas en la interacción del usuario con la interfaz de usuario. Esta biblioteca proporciona utilidades para seleccionar elementos del DOM, simular eventos y validar resultados, asegurando que la aplicación se comporte como lo haría en un entorno real.
+- **Jest**: Es el entorno de pruebas integrado utilizado por defecto con React. Jest proporciona capacidades como mocks, espiado de funciones, pruebas asíncronas y generación de informes de cobertura.
+
+Ambas herramientas, en conjunto, permiten realizar pruebas completas y enfocadas en la experiencia del usuario y la funcionalidad del sistema.
+
+##### Instalación y configuración
+
+La instalación y configuración de las herramientas se realizó de la siguiente manera:
+
+- Instalación de dependencias necesarias:
+
+  El proyecto ya incluye en el archivo `package.json` las bibliotecas relacionadas con pruebas, como:
+
+  - `@testing-library/react`: Proporciona herramientas para realizar pruebas en componentes React.
+  - `@testing-library/jest-dom`: Añade funcionalidades adicionales para pruebas de aserciones en el DOM.
+  - `@testing-library/user-event`: Facilita la simulación de eventos de usuario.
+  - `react-scripts`: Incluye soporte integrado para Jest.
+
+- **Ejecutar las pruebas:**
+
+  Las pruebas se ejecutan con el siguiente comando:
+
+  ```sh
+  npm test
+  ```
+
+#### Pruebas Realizadas
+
+##### Descripción general de las pruebas
+
+En esta sección se describen de manera general las pruebas realizadas para garantizar el correcto funcionamiento de la aplicación web. Las pruebas abarcan tanto la navegación entre rutas como la interacción con componentes individuales. Se empleó la librería `@testing-library/react` y Jest para la implementación y ejecución de estas pruebas, asegurando que los componentes cumplan con los requisitos funcionales y de diseño.
+
+Se probaron los siguientes aspectos principales:
+
+- **Renderizado correcto de componentes con props proporcionadas.**
+- **Comportamiento esperado ante eventos de usuario, como clics y navegación.**
+- **Correcta aplicación de estilos y atributos.**
+- **Validación de lógica interna de los componentes, como el manejo de estado y funciones callback.**
+
+##### Lista de métodos probados
+
+###### Navegación y Rutas
+
+- **Archivo:** `App.js`
+- **Prueba:** Renderiza la ruta `/login` mostrando el componente `LoginPage`.
+- **Tecnología:** Mock de `react-router-dom` con `MemoryRouter`.
+
+###### Componentes Individuales
+
+- **Componente:** `EventWeek`
+
+  - **Pruebas:**
+    - Renderizado correcto con props básicas (nombre, ubicación, precio, descripción, imagen, etc.).
+    - Navegación a la ruta proporcionada al hacer clic en el botón "More Info".
+    - Cambio del estado de "bookmark" al hacer clic en el ícono correspondiente.
+  - **Mock:** `useNavigate` de `react-router-dom`.
+
+- **Componente:** `ActivitiesCard`
+
+  - **Pruebas:**
+    - Renderizado correcto con props básicas (imagen, texto, índice).
+    - Llamada a la función `onClick` cuando se hace clic en la tarjeta.
+
+- **Componente:** `Title`
+
+  - **Pruebas:**
+    - Renderizado correcto del texto proporcionado.
+    - Manejo de casos con texto vacío.
+
+- **Componente:** `PlaceCard`
+
+  - **Pruebas:**
+    - Renderizado correcto del nombre, imagen, estrellas de calificación y estado de "bookmark".
+    - Navegación al hacer clic en la tarjeta.
+    - Llamada a la función `onToggleBookmark` al hacer clic en el ícono de marcador.
+
+- **Componente:** `Header`
+
+  - **Pruebas:**
+    - Renderizado correcto del logo y nombre de la aplicación.
+    - Navegación a la página de inicio al hacer clic en el logo.
+    - Navegación a la página de perfil al hacer clic en el ícono de usuario.
+    - Renderizado del ícono de perfil predeterminado o la imagen de perfil del usuario logueado.
+  - **Mock:** `useAuth` para simular el estado del usuario.
+
+##### Resultados de las Pruebas
+
+###### Test de renderización de rutas en `App.js`
+
+**Descripción:** Verifica que los componentes correctos se renderizan según la ruta proporcionada.
+
+```js
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
+
+jest.mock("./pages/loginPage/LoginPage", () => () => <div>Mock LoginPage</div>);
+jest.mock("react-router-dom", () => {
+  const actual = jest.requireActual("react-router-dom");
+  return {
+    ...actual,
+    BrowserRouter: ({ children }) => (
+      <actual.MemoryRouter initialEntries={["/login"]}>
+        {children}
+      </actual.MemoryRouter>
+    ),
+  };
+});
+
+test("renderiza LoginPage en la ruta /login", () => {
+  render(<App />);
+  expect(screen.getByText("Mock LoginPage")).toBeInTheDocument();
+});
+```
+
+###### Test del componente `EventWeek`
+
+- **Test 1:** Verifica la renderización correcta de las props básicas, como nombre, imagen, descripción y precio.
+- **Test 2:** Asegura que el botón "More Info" redirige a la ruta especificada.
+
+```js
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import EventWeek from "./EventWeek";
+import { useNavigate } from "react-router-dom";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
+test("renderiza correctamente con las props básicas", () => {
+  const mockProps = {
+    id: 1,
+    image: "https://via.placeholder.com/150",
+    name: "Evento de prueba",
+    location: "Madrid",
+    price: 20,
+    rating: 4,
+    description: "Este es un evento increíble.",
+    route: "/event/1",
+    isBookmarked: false,
+    onBookmarkToggle: jest.fn(),
+  };
+
+  render(
+    <MemoryRouter>
+      <EventWeek {...mockProps} />
+    </MemoryRouter>
+  );
+
+  expect(screen.getByText("Evento de prueba")).toBeInTheDocument();
+});
+
+test("el botón 'More Info' navega a la ruta correcta", () => {
+  const mockNavigate = jest.fn();
+  jest.mocked(useNavigate).mockReturnValue(mockNavigate);
+  
+  render(
+    <MemoryRouter>
+      <EventWeek {...mockProps} />
+    </MemoryRouter>
+  );
+
+  fireEvent.click(screen.getByText("More Info"));
+  expect(mockNavigate).toHaveBeenCalledWith(mockProps.route);
+});
+```
+
+
 
 ---
 
