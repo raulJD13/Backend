@@ -44,8 +44,134 @@ La aplicación cuenta con funcionalidades clave como registro e inicio de sesió
 - **Accesibilidad**: Disponible para dispositivos móviles, con integración de redes sociales para un acceso rápido y sencillo.
 
 ## 2. Diagramas y Modelo de Datos
-- Justificación y explicación del modelo de datos.
-- Diagramas de clases, entidad-relación, etc.
+### Justificación y explicación del modelo de datos
+El modelo de datos se basa en la gestión de usuarios, actividades y deportes, estableciendo relaciones que permiten una organización eficiente de la información y la interacción entre los usuarios.
+
+#### Esquema de Entidad Relación
+**Diagrama básico MER:**
+- Usuario (1) ↔ (M) UsuarioActividad (M) ↔ (1) Actividad
+- Deporte (1) ↔ (M) Actividad
+- Actividad (1) ↔ (M) Comentario
+
+#### Modelo Relacional
+**Usuario**
+- id_usuario (PK)
+- email
+- localizacion
+- contraseña
+- foto_perfil
+- foto_fondo_perfil
+- username
+- Relaciones:
+  - Participa en muchas actividades (muchos a muchos, usa una tabla intermedia UsuarioActividad).
+  - Puede comentar en actividades (uno a muchos, relación con Comentario).
+
+**Deporte**
+- id_deporte (PK)
+- nombre
+- tipo (enum: agua o tierra)
+- imagen
+- Relaciones:
+  - Un deporte tiene muchas actividades (uno a muchos, relación con Actividad).
+
+**Actividad**
+- id_actividad (PK)
+- nombre
+- valoracion
+- precio
+- descripcion
+- tendencia
+- evento
+- bookmark
+- favoritas
+- unido
+- latitud
+- longitud
+- dificultad (enum: facil, intermedia, difícil)
+- imagen
+- disponibilidad
+- Relaciones:
+  - Pertenecer a un deporte (muchos a uno, relación con Deporte).
+  - Tener usuarios participantes (muchos a muchos, usa UsuarioActividad).
+  - Puede tener comentarios (uno a muchos, relación con Comentario).
+  - Puede ser destacada (atributo booleano o enum).
+
+**UsuarioActividad** (Tabla intermedia para evitar problemas muchos a muchos)
+- id_usuario_actividad (PK)
+- usuario_id (FK a Usuario)
+- actividad_id (FK a Actividad)
+- Fecha de inscripción.
+
+**Comentario**
+- id_comentario (PK)
+- texto
+- fecha
+- usuario_id (FK a Usuario)
+- actividad_id (FK a Actividad)
+- Relaciones:
+  - Relación con Usuario (muchos a uno).
+  - Relación con Actividad (muchos a uno).
+
+### Creación de base de datos
+```sql
+CREATE TABLE Usuario (
+    id_usuario BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    localizacion VARCHAR(255),
+    contraseña VARCHAR(255) NOT NULL,
+    foto_perfil VARCHAR(255),
+    foto_fondo_perfil VARCHAR(255)
+);
+
+CREATE TABLE Deporte (
+    id_deporte BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    tipo ENUM('agua', 'tierra') NOT NULL,
+    imagen VARCHAR(255)
+);
+
+CREATE TABLE Actividad (
+    id_actividad BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    valoracion FLOAT CHECK(valoracion >= 0 AND valoracion <= 5),
+    precio DECIMAL(10, 2) CHECK(precio >= 0),
+    descripcion TEXT,
+    tendencia BOOLEAN DEFAULT FALSE,
+    evento BOOLEAN DEFAULT FALSE,
+    bookmark BOOLEAN DEFAULT FALSE,
+    favoritas BOOLEAN DEFAULT FALSE,
+    unido BOOLEAN DEFAULT FALSE,
+    latitud DECIMAL(10, 8),
+    longitud DECIMAL(11, 8),
+    dificultad ENUM('facil', 'intermedia', 'dificil'),
+    imagen VARCHAR(255),
+    disponibilidad BOOLEAN DEFAULT TRUE,
+    id_deporte BIGINT NOT NULL,
+    FOREIGN KEY (id_deporte) REFERENCES Deporte(id_deporte) ON DELETE CASCADE
+);
+
+CREATE TABLE Comentario (
+    id_comentario BIGINT AUTO_INCREMENT PRIMARY KEY,
+    texto TEXT NOT NULL,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    id_usuario BIGINT NOT NULL,
+    id_actividad BIGINT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (id_actividad) REFERENCES Actividad(id_actividad) ON DELETE CASCADE
+);
+
+CREATE TABLE UsuarioActividad (
+    id_usuario_actividad BIGINT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id BIGINT NOT NULL,
+    actividad_id BIGINT NOT NULL,
+    fecha_inscripcion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id_usuario) ON DELETE CASCADE,
+    FOREIGN KEY (actividad_id) REFERENCES Actividad(id_actividad) ON DELETE CASCADE,
+    UNIQUE (usuario_id, actividad_id)
+);
+```
+
+
 - Referencia a archivos del módulo "Acceso a Datos".
 
 ## 3. Requisitos de Usuario
