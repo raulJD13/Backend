@@ -25,10 +25,23 @@
 14. Enlaces y Referencias
 
 ## 1. Introducción / Descripción
-- **Origen de la necesidad**: [Describir el motivo del proyecto]
-- **Empresa destinataria**: [Empresa o sector para el que se desarrolla]
-- **Resumen del desarrollo**: [Explicación breve en dos párrafos]
-- **Otros aspectos relevantes**
+
+### Origen de la necesidad
+Muchas personas disfrutan de actividades al aire libre, como senderismo, ciclismo, escalada, kayak y esnórquel, pero no siempre tienen compañía para realizarlas. Esto puede desmotivar a algunos, especialmente en deportes que requieren compañía por seguridad o disfrute. Para resolver este problema, se ha desarrollado una aplicación que permite a los usuarios encontrar grupos con intereses similares y unirse a actividades deportivas en distintos entornos.
+
+### Empresa destinataria
+Esta aplicación está diseñada para entusiastas de los deportes al aire libre, agencias de turismo, empresas de actividades recreativas y cualquier persona interesada en socializar a través del deporte. También está dirigida a turistas y nuevos residentes que buscan explorar su entorno y participar en eventos locales.
+
+### Resumen del desarrollo
+Esta aplicación facilita la conexión entre personas que desean participar en actividades deportivas en grupo. Los usuarios pueden registrarse, personalizar su perfil, unirse a actividades existentes o crear nuevas, interactuar mediante chats en tiempo real y recibir notificaciones sobre cambios en sus eventos. Además, las empresas pueden anunciar actividades de pago, permitiendo a los usuarios reservar y pagar directamente desde la plataforma.
+
+La aplicación cuenta con funcionalidades clave como registro e inicio de sesión, personalización de perfil, organización de eventos, chat en tiempo real y un sistema de valoración de actividades y usuarios. Todo esto con el objetivo de fomentar la socialización y mejorar la experiencia de quienes disfrutan de actividades al aire libre.
+
+### Otros aspectos relevantes
+- **Seguridad y confianza**: La aplicación incluye un sistema de valoraciones y comentarios para mejorar la confianza entre los usuarios.
+- **Flexibilidad**: Se pueden organizar eventos tanto gratuitos como de pago, ampliando las opciones para los usuarios y las empresas.
+- **Interfaz intuitiva**: Diseñada para ser fácil de usar, con opciones rápidas para encontrar y unirse a actividades.
+- **Accesibilidad**: Disponible para dispositivos móviles, con integración de redes sociales para un acceso rápido y sencillo.
 
 ## 2. Diagramas y Modelo de Datos
 - Justificación y explicación del modelo de datos.
@@ -85,7 +98,7 @@
 ## 11. Repositorios
 - FrontEnd: https://github.com/raulJD13/Frontend.git
 - BackEnd: https://github.com/raulJD13/Backend.git
-- 
+- Proyecto en react: https://github.com/raulJD13/TerraSplash2.0.git
 
 ## 12. Planificación y Organización
 - Explicación sobre la metodología de organización y planificación.
