@@ -83,7 +83,9 @@
 - Comparación de alternativas tecnológicas y justificación de las elecciones.
 
 ## 11. Repositorios
-- Enlaces a los repositorios del proyecto.
+- FrontEnd: https://github.com/raulJD13/Frontend.git
+- BackEnd: https://github.com/raulJD13/Backend.git
+- 
 
 ## 12. Planificación y Organización
 - Explicación sobre la metodología de organización y planificación.
