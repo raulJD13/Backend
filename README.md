@@ -284,9 +284,27 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 ---
 
 ## 5. Descripción del Funcionamiento y Especificaciones Técnicas
-- Explicación del sistema.
-- Especificaciones técnicas del servidor y de las aplicaciones web y móvil.
-- Elementos visuales como mapas conceptuales.
+
+### Explicación del sistema
+El sistema permite la creación, gestión y participación en actividades deportivas al aire libre. Los usuarios pueden registrarse, iniciar sesión, buscar y unirse a actividades, comunicarse con otros participantes a través de un chat en tiempo real y calificar las actividades.
+
+### Especificaciones técnicas
+- **Backend:** Desarrollado en Java 17 con Spring Boot 2.7.
+- **Base de datos:** MySQL con Hibernate (JPA) para la persistencia de datos.
+- **Frontend Web:** Angular con Ionic para una experiencia responsive.
+- **Mobile:** Aplicación híbrida con Ionic Angular.
+- **Autenticación:** Implementada con JWT para asegurar el acceso a la plataforma.
+- **Seguridad:** Configuración de CORS para permitir peticiones desde clientes externos.
+- **Almacenamiento de Archivos:** Soporte para subir y acceder a imágenes y otros archivos.
+
+### Tecnologías utilizadas
+- Java 17
+- Spring Boot 2.7
+- JPA (Hibernate)
+- MySQL
+- Maven
+- Ionic
+- Angular
 
 ---
 
