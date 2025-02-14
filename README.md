@@ -746,9 +746,50 @@ Esta comparación de tecnologías fue realizada para garantizar la elección de 
 - Proyecto en react: https://github.com/raulJD13/TerraSplash2.0.git
 
 ---
-
 ## 12. Planificación y Organización
-- Explicación sobre la metodología de organización y planificación.
+
+En el desarrollo de este proyecto, hemos adoptado metodologías ágiles para asegurar una gestión eficiente y flexible a lo largo del ciclo de vida del proyecto. Esto nos permite adaptarnos rápidamente a los cambios y asegurar que el producto final cumpla con los requisitos y expectativas del cliente.
+
+### Metodología Ágil
+Utilizamos **Scrum** como metodología ágil para gestionar el proyecto. Scrum nos permite dividir el trabajo en **sprints**, que son ciclos de desarrollo cortos (generalmente de dos semanas). En cada sprint, establecemos objetivos claros que deben cumplirse al final del ciclo. Este enfoque iterativo y incremental nos permite entregar funcionalidad de manera continua, mientras mantenemos un alto nivel de calidad.
+
+#### Principales elementos de Scrum:
+- **Sprint Planning**: Al inicio de cada sprint, se realiza una planificación para definir las tareas que se abordarán durante ese ciclo. Las tareas se desglosan en historias de usuario y se priorizan en función de su importancia y el valor que aportan al proyecto.
+- **Daily Standups**: Reuniones diarias donde los miembros del equipo informan sobre el progreso de sus tareas, los obstáculos encontrados y las tareas que realizarán al día siguiente. Esto ayuda a detectar posibles problemas y solucionarlos rápidamente.
+- **Sprint Review**: Al final de cada sprint, se realiza una revisión del trabajo realizado. Se presenta el avance y se recibe retroalimentación para ajustar la dirección del proyecto.
+- **Sprint Retrospective**: Después de la revisión, el equipo reflexiona sobre el proceso, identifica áreas de mejora y establece acciones para mejorar la eficiencia y calidad en el próximo sprint.
+
+### Herramientas Utilizadas
+Para gestionar el proyecto y mantener la colaboración eficiente, utilizamos varias herramientas que nos ayudan a organizar el trabajo, gestionar el código fuente y hacer seguimiento del progreso:
+
+#### 1. **Git**
+Usamos **Git** como sistema de control de versiones para gestionar el código fuente. Git nos permite realizar un seguimiento detallado de todos los cambios en el código, facilitando la colaboración entre los miembros del equipo y asegurando que las versiones del proyecto se mantengan organizadas.
+
+Las principales prácticas que seguimos con Git incluyen:
+- **Ramas (branches)**: Creamos ramas para cada característica o tarea, asegurando que los cambios se realicen de manera aislada y evitando conflictos entre diferentes funcionalidades.
+- **Commits frecuentes**: Realizamos commits pequeños y frecuentes para garantizar que los cambios sean fácilmente rastreables y revertibles si es necesario.
+- **Pull Requests (PRs)**: Cuando una tarea o característica está lista, se crea un pull request para revisión. Esto permite que otros miembros del equipo revisen el código antes de fusionarlo en la rama principal.
+
+#### 2. **GitHub**
+**GitHub** es la plataforma de desarrollo que usamos para alojar el código y gestionar el repositorio. Además de ser una plataforma de alojamiento de código, GitHub facilita la colaboración entre los miembros del equipo a través de características como:
+- **Issues**: Utilizamos los "issues" para hacer un seguimiento de las tareas y problemas pendientes. Cada tarea se describe como un "issue" con su prioridad y la persona asignada para su resolución.
+- **Proyectos (GitHub Projects)**: Utilizamos GitHub Projects para organizar el trabajo de manera visual. Esta herramienta nos permite crear tableros Kanban, donde cada tarea puede moverse entre las diferentes etapas del proyecto (Pendiente, En progreso, Completada).
+- **Wiki de GitHub**: Usamos la sección Wiki de GitHub para documentar aspectos importantes del proyecto, como las decisiones de diseño, instrucciones de uso, configuración y pruebas, asegurando que todos los miembros del equipo tengan acceso a la información relevante.
+
+#### 3. **Jira (Opcional)**
+En algunos casos, podemos complementar la gestión con herramientas como **Jira** para una gestión más detallada de las tareas y el seguimiento del progreso en un entorno más estructurado, si el equipo lo considera necesario.
+
+#### 4. **Slack**
+La comunicación constante es clave en las metodologías ágiles, por lo que utilizamos **Slack** como herramienta principal de comunicación en el equipo. Slack facilita la colaboración en tiempo real a través de canales temáticos y mensajes directos, lo que permite que todos los miembros del equipo estén al tanto de los avances, dudas y posibles problemas.
+
+### Planificación de Tareas y Seguimiento
+Las tareas se organizan en el backlog del proyecto, donde se priorizan según su importancia y su valor para el negocio. Durante cada sprint, se seleccionan las tareas del backlog que se abordarán en el ciclo, y al final del sprint se evalúa el progreso. Las historias de usuario se descomponen en tareas más pequeñas que pueden completarse dentro de un sprint.
+
+Cada tarea tiene un estimado de esfuerzo, generalmente calculado en horas o puntos de historia. Esto permite a los desarrolladores gestionar su tiempo y garantizar que se cumplan los objetivos del sprint.
+
+---
+
+Este enfoque de planificación y organización basado en metodologías ágiles nos permite mantener un control claro sobre el progreso del proyecto, adaptarnos rápidamente a los cambios y entregar un producto de alta calidad en cada sprint.
 
 ---
 
