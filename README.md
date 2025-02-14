@@ -209,7 +209,77 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 
 ---
 ## 4. Casos de Uso
-- Descripción detallada de los casos de uso del sistema.
+
+### Caso de Uso 1: Registro de Usuario
+- **Actor:** Usuario nuevo
+- **Objetivo:** Crear una cuenta en la aplicación
+- **Flujo principal:**  
+  1. El usuario accede a la pantalla de registro.  
+  2. Ingresa su email, contraseña, ubicación y otros datos opcionales.  
+  3. Confirma la contraseña y acepta los términos y condiciones.  
+  4. El sistema valida los datos y crea la cuenta.  
+  5. Se envía un correo de confirmación.  
+- **Flujo alternativo:**  
+  - Si el correo ya está registrado, se muestra un mensaje de error.  
+  - Si la contraseña no cumple con los requisitos, se solicita una nueva.  
+- **Resultado esperado:**  
+  - El usuario recibe un correo para confirmar su cuenta y puede iniciar sesión.  
+
+### Caso de Uso 2: Iniciar Sesión
+- **Actor:** Usuario registrado
+- **Objetivo:** Acceder a su cuenta en la aplicación
+- **Flujo principal:**  
+  1. El usuario accede a la pantalla de inicio de sesión.  
+  2. Ingresa su email y contraseña.  
+  3. El sistema valida las credenciales.  
+  4. Si son correctas, el usuario accede a su perfil.  
+- **Flujo alternativo:**  
+  - Si el email o la contraseña son incorrectos, se muestra un mensaje de error.  
+  - Si el usuario olvida la contraseña, puede solicitar un restablecimiento.  
+- **Resultado esperado:**  
+  - El usuario accede correctamente a la aplicación.  
+
+### Caso de Uso 3: Creación de Actividad
+- **Actor:** Usuario registrado
+- **Objetivo:** Crear una nueva actividad en la aplicación
+- **Flujo principal:**  
+  1. El usuario accede a la sección "Crear Actividad".  
+  2. Ingresa los detalles de la actividad: categoría (tierra o agua), nombre, ubicación, fecha y hora, número de participantes, nivel de dificultad y precio (si aplica).  
+  3. El usuario confirma la creación de la actividad.  
+  4. La actividad se publica y otros usuarios pueden verla y unirse.  
+- **Flujo alternativo:**  
+  - Si falta información obligatoria, se solicita completarla.  
+  - Si hay un error en la validación de datos, se muestra un mensaje de corrección.  
+- **Resultado esperado:**  
+  - La actividad queda registrada y visible para otros usuarios.
+
+### Caso de Uso 4: Unirse a una Actividad
+- **Actor:** Usuario registrado
+- **Objetivo:** Unirse a una actividad existente
+- **Flujo principal:**  
+  1. El usuario accede a la lista de actividades disponibles.  
+  2. Selecciona una actividad de interés.  
+  3. Confirma su participación.  
+  4. Se le agrega a la lista de participantes y obtiene acceso al chat del grupo.  
+- **Flujo alternativo:**  
+  - Si la actividad ya está llena, se muestra un mensaje de cupo completo.  
+  - Si la actividad es de pago, se solicita la confirmación del pago antes de unirse.  
+- **Resultado esperado:**  
+  - El usuario se une exitosamente a la actividad y puede interactuar con otros participantes.
+
+
+### Caso de Uso 5: Calificación y Comentarios
+- **Actor:** Usuario que ha participado en una actividad
+- **Objetivo:** Calificar la actividad y a otros participantes
+- **Flujo principal:**  
+  1. El usuario accede a la actividad finalizada.  
+  2. Asigna una calificación del 1 al 5.  
+  3. Opcionalmente, deja un comentario sobre la experiencia.  
+  4. La calificación y comentarios se guardan y se reflejan en la actividad y en el perfil de los participantes.  
+- **Flujo alternativo:**  
+  - Si el usuario no participó en la actividad, no puede calificarla.  
+- **Resultado esperado:**  
+  - La actividad y los participantes reciben calificaciones y comentarios para mejorar la experiencia.
 
 ---
 
