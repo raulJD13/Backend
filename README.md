@@ -48,10 +48,16 @@ La aplicación cuenta con funcionalidades clave como registro e inicio de sesió
 El modelo de datos se basa en la gestión de usuarios, actividades y deportes, estableciendo relaciones que permiten una organización eficiente de la información y la interacción entre los usuarios.
 
 #### Esquema de Entidad Relación
+Imagen Esquema de Entidad Relacion: 
+
 **Diagrama básico MER:**
 - Usuario (1) ↔ (M) UsuarioActividad (M) ↔ (1) Actividad
 - Deporte (1) ↔ (M) Actividad
 - Actividad (1) ↔ (M) Comentario
+
+#### Diagrama UML
+Imagen de Diagrama uml
+
 
 #### Modelo Relacional
 **Usuario**
@@ -174,11 +180,31 @@ CREATE TABLE UsuarioActividad (
 
 - Referencia a archivos del módulo "Acceso a Datos".
 
-## 3. Requisitos de Usuario
-- Definición de requisitos generales y especificación inicial de casos de uso.
-- Evolución de los requisitos a lo largo del proceso.
-- Producto resultante: listado de requisitos generales y casos de uso iniciales.
+---
 
+## 3. Requisitos de Usuario
+
+### **Definición de requisitos generales y especificación inicial de casos de uso**
+1. Los usuarios deben poder registrarse e iniciar sesión.
+2. Los usuarios pueden buscar y unirse a actividades deportivas.
+3. Los usuarios pueden crear nuevas actividades e invitar a otros.
+4. Se debe permitir la comunicación en tiempo real entre los participantes.
+5. El sistema debe permitir la valoración de actividades y usuarios.
+6. Empresas pueden promocionar eventos pagos.
+
+### **Evolución de los requisitos a lo largo del proceso**
+Los requisitos pueden evolucionar según la retroalimentación de los usuarios, permitiendo la adición de nuevas funcionalidades como:
+- Filtros avanzados para la búsqueda de actividades.
+- Integración con dispositivos wearables para el monitoreo de actividad física.
+
+### **Producto resultante: listado de requisitos generales y casos de uso iniciales**
+- **Registro/Login**: Autenticación mediante email/contraseña o redes sociales.
+- **Exploración de actividades**: Lista de eventos deportivos según ubicación e interés.
+- **Creación de eventos**: Formulario para definir actividad, ubicación, fecha, dificultad, etc.
+- **Chat en tiempo real**: Canal de comunicación entre participantes.
+- **Valoraciones**: Sistema de puntuación de usuarios y actividades.
+
+---
 ## 4. Casos de Uso
 - Descripción detallada de los casos de uso del sistema.
 
