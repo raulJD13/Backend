@@ -514,7 +514,168 @@ test("el botón 'More Info' navega a la ruta correcta", () => {
   expect(mockNavigate).toHaveBeenCalledWith(mockProps.route);
 });
 ```
+###### Test del componente `ActivitiesCard`
 
+- **Test 1:** Comprueba que el componente renderiza correctamente el fondo y el texto.
+- **Test 2:** Comprueba que el evento `onClick` se dispara al interactuar con la tarjeta.
+
+```js
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import ActivitesCard from "./ActivitiesCard";
+
+describe("ActivitiesCard", () => {
+  const mockProps = {
+    imageUrl: "https://example.com/image.jpg",
+    text: "Test Activity",
+    onClick: jest.fn(),
+    index: 2,
+  };
+
+  test("se renderiza con la imagen, texto y estilos correctos", () => {
+    render(<ActivitesCard {...mockProps} />);
+
+    const card = screen.getByTestId("activities-card");
+    expect(card).toHaveStyle(`background-image: url(${mockProps.imageUrl})`);
+    expect(card).toHaveStyle(`animation-delay: ${mockProps.index * 0.2}s`);
+
+    const textElement = screen.getByText(mockProps.text);
+    expect(textElement).toBeInTheDocument();
+  });
+
+  test("llama a la funciÃ³n onClick cuando se hace clic", () => {
+    render(<ActivitesCard {...mockProps} />);
+
+    const card = screen.getByTestId("activities-card");
+    fireEvent.click(card);
+
+    expect(mockProps.onClick).toHaveBeenCalled();
+  });
+});
+```
+
+###### Test del componente `Header`
+
+- **Test 1:** Verifica la navegaciÃ³n al hacer clic en el logo para redirigir a la pÃ¡gina de inicio.
+- **Test 2:** Comprueba que el Ã­cono de perfil navega correctamente a la pÃ¡gina de perfil del usuario.
+
+```js
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import Header from "./Header";
+import "@testing-library/jest-dom/extend-expect";
+import { BrowserRouter as Router } from "react-router-dom";
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: jest.fn(),
+}));
+
+jest.mock("../../contexts/AuthContext", () => ({
+  useAuth: jest.fn(),
+}));
+
+describe("Componente Header", () => {
+  const navigateMock = jest.fn();
+  const currentUserMock = {
+    profileImage: "/images/user-profile.jpg",
+  };
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+    require("react-router-dom").useNavigate.mockReturnValue(navigateMock);
+    require("../../contexts/AuthContext").useAuth.mockReturnValue({
+      currentUser: currentUserMock,
+    });
+  });
+
+  test("navega a la pÃ¡gina de inicio al hacer clic en el logo", () => {
+    render(
+      <Router>
+        <Header />
+      </Router>
+    );
+    const logoElement = screen.getByAltText("TerraSplash Logo");
+    fireEvent.click(logoElement);
+
+    expect(navigateMock).toHaveBeenCalledWith("/home");
+  });
+
+  test("navega a la pÃ¡gina de perfil al hacer clic en el Ã­cono de usuario", () => {
+    render(
+      <Router>
+        <Header />
+      </Router>
+    );
+    const userProfileImage = screen.getByAltText("User Profile");
+    fireEvent.click(userProfileImage);
+
+    expect(navigateMock).toHaveBeenCalledWith("/profile");
+  });
+});
+```
+
+###### Test del componente `PlaceCard`
+
+- **Test 1:** ComprobaciÃ³n que las estrellas de rating se renderizan correctamente.
+- **Test 2:** ComprobaciÃ³n que el Ã­cono de bookmark puede activarse o desactivarse.
+
+```js
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import PlaceCard from "./PlaceCard";
+import "@testing-library/jest-dom/extend-expect";
+
+describe("Componente PlaceCard", () => {
+  const onClickMock = jest.fn();
+  const onToggleBookmarkMock = jest.fn();
+
+  test("renderiza correctamente las estrellas de rating", () => {
+    render(<PlaceCard name="Playa Bonita" rating={4} imageUrl="playa.jpg" onClick={onClickMock} isBookmarked={false} onToggleBookmark={onToggleBookmarkMock} />);
+    const filledStars = screen.getAllByTestId("star-filled");
+    const outlinedStars = screen.getAllByTestId("star-outlined");
+    expect(filledStars.length).toBe(4);
+    expect(outlinedStars.length).toBe(1);
+  });
+
+  test("activa el manejador onToggleBookmark al hacer clic en el Ã­cono de marcador", () => {
+    render(<PlaceCard name="Playa Bonita" rating={4} imageUrl="playa.jpg" onClick={onClickMock} isBookmarked={false} onToggleBookmark={onToggleBookmarkMock} />);
+    const bookmarkIcon = screen.getByTestId("bookmark-icon");
+    fireEvent.click(bookmarkIcon);
+    expect(onToggleBookmarkMock).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+###### Test del componente `Title`
+
+- **Test 1:** Comprobar que renderiza el texto proporcionado correctamente.
+- **Test 2:** Comprobar que renderiza correctamente con un texto vacÃ­o.
+
+```js
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import Title from "./Title";
+
+describe("Title Component", () => {
+  test("renderiza correctamente el texto proporcionado", () => {
+    const testText = "Hola Hila!";
+    render(<Title text={testText} />);
+    const titleElement = screen.getByTestId("title");
+    expect(titleElement).toBeInTheDocument();
+    expect(titleElement).toHaveTextContent(testText);
+    expect(titleElement).toHaveClass("selection-word");
+  });
+
+  test("renderiza correctamente con un texto vacÃ­o", () => {
+    render(<Title text="" />);
+    const titleElement = screen.getByTestId("title");
+    expect(titleElement).toBeInTheDocument();
+    expect(titleElement).toHaveTextContent("");
+    expect(titleElement).toHaveClass("selection-word");
+  });
+});
+```
 
 
 ---
