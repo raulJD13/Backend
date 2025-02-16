@@ -502,8 +502,73 @@ Los resultados obtenidos han permitido optimizar la experiencia general, asegura
 
 Este manual proporciona una guía clara tanto para la instalación de la aplicación como para su uso por parte de los usuarios.
 
+### 7.3. Manual de Instalación(API)
+#### Requisitos Previos
+- Java 17 instalado
+- Maven instalado
+- MySQL configurado
 
-### 7.3 Ayuda dentro de la App
+#### Pasos de Instalación
+1. Clona el repositorio:
+   ```sh
+   git clone https://github.com/raulJD13/Backend.git
+   cd TerraSplash
+   ```
+2. Configura `application.properties`:
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/terrasplash
+   spring.datasource.username=<TU_USUARIO>
+   spring.datasource.password=<TU_CONTRASEÑA>
+   spring.jpa.hibernate.ddl-auto=update
+   ```
+3. Ejecuta el proyecto con Maven:
+   ```sh
+   mvn spring-boot:run
+   ```
+4. Accede a la API en `http://localhost:8083`
+
+---
+
+### 7.4. Manual de Usuario API
+#### Crear un nuevo deporte
+**Método:** POST  
+**Endpoint:** `/api/deportes`
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+    "nombre": "yoga",
+    "tipo": "tierra",
+    "imagen": "yoga.jpg"
+}
+```
+**Respuesta:**
+```json
+{
+    "idDeporte": 18,
+    "nombre": "yoga",
+    "tipo": "tierra",
+    "imagen": "yoga.jpg"
+}
+```
+
+#### Ver todos los deportes
+**Método:** GET  
+**Endpoint:** `/api/deportes`
+
+####  Modificar un deporte
+**Método:** PUT  
+**Endpoint:** `/api/deportes/{idDeporte}`
+
+#### Eliminar un deporte
+**Método:** DELETE  
+**Endpoint:** `/api/deportes/{idDeporte}`
+
+---
+
+Este documento cubre la documentación esencial para el backend de la API. Para más detalles, consultar el repositorio oficial.
+
+
+### 7.5 Ayuda dentro de la App
 - Instrucciones accesibles desde la propia aplicación.
 
 #### DOCUMENTACIÓN DE AYUDA TERRASPLASH
