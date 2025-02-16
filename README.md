@@ -310,7 +310,10 @@ El sistema permite la creación, gestión y participación en actividades deport
 
 ## 6. Interfaces
 ### 6.1 Diseño Inicial: Mokups y Prototipado
-- Enlace compartido con la herramienta usada para el prototipado.
+
+- [Enlace compartido con la herramienta usada para el prototipado.](https://www.figma.com/proto/GR2rNyKmLXYsix9RUzXMuJ?node-id=0-1&t=yzrgLzM9ZPkakEQV-6)
+- [Enlace compartido del pdf.](https://drive.google.com/file/d/1otu_OyeZ03T8SiQLBPOOHylCt8Wdd-Yo/view)
+- 
 
 ### 6.2 Usabilidad y Accesibilidad
 - Aspectos clave de usabilidad considerados.
