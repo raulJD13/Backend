@@ -1121,7 +1121,7 @@ Este enfoque de planificación y organización basado en metodologías ágiles n
 ---
 
 ## 13. Conclusiones y Reflexiones
-- Opiniones auténticas sobre el desarrollo del proyecto.
+- Opiniones auténticas sobre el desarrollo del proyecto
 
 ---
 
