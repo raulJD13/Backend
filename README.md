@@ -306,6 +306,108 @@ El sistema permite la creación, gestión y participación en actividades deport
 - Ionic
 - Angular
 
+###Documentación de la API - Introducción
+
+Esta API está diseñada para gestionar actividades deportivas y conectar usuarios interesados en deportes al aire libre. Permite a los usuarios registrarse, crear y unirse a actividades, gestionar comentarios y subir archivos.
+
+## Documentación de Endpoints (ERS)
+### Endpoints de Deportes
+**Base URL:** `/api/deportes`
+
+| Método | Endpoint  | Descripción  |
+|---------|----------|--------------|
+| GET     | `/`      | Obtiene la lista de todos los deportes  |
+| GET     | `/{id}`  | Obtiene un deporte por su ID  |
+| POST    | `/`      | Crea un nuevo deporte  |
+| PUT     | `/{id}`  | Actualiza un deporte existente  |
+| DELETE  | `/{id}`  | Elimina un deporte por su ID  |
+
+### Endpoints de Actividades
+**Base URL:** `/api/actividades`
+
+| Método | Endpoint  | Descripción  |
+|---------|----------|--------------|
+| GET     | `/deporte/{idDeporte}` | Obtiene las actividades asociadas a un deporte |
+| GET     | `/{id}`  | Obtiene una actividad por su ID |
+| POST    | `/`      | Crea una nueva actividad |
+| PUT     | `/{id}`  | Actualiza los datos de una actividad existente |
+| DELETE  | `/{id}`  | Borra una actividad por su ID |
+
+### Endpoints de Usuarios
+**Base URL:** `/api/usuarios`
+
+| Método | Endpoint  | Descripción  |
+|---------|----------|--------------|
+| POST    | `/login` | Inicia sesión y devuelve un token |
+| GET     | `/`      | Obtiene la lista de usuarios creados |
+| GET     | `/{id}`  | Obtiene un usuario por su ID |
+| POST    | `/`      | Crea un nuevo usuario |
+| PUT     | `/{id}`  | Actualiza los datos de un usuario existente |
+| DELETE  | `/{id}`  | Borra a un usuario por su ID |
+
+### 2.4. Endpoints de Comentarios
+**Base URL:** `/api/comentarios`
+
+| Método | Endpoint  | Descripción  |
+|---------|----------|--------------|
+| GET     | `/`      | Obtiene la lista de comentarios |
+| GET     | `/{id}`  | Obtiene un comentario por su ID |
+| POST    | `/`      | Crea un nuevo comentario |
+| PUT     | `/{id}`  | Actualiza un comentario existente |
+| DELETE  | `/{id}`  | Borra un comentario por su ID |
+
+### Endpoints para Archivos
+**Base URL:** `/api/files`
+
+| Método | Endpoint  | Descripción  |
+|---------|----------|--------------|
+| POST    | `/upload` | Sube un archivo (imagen) |
+| GET     | `/uploads/{filename}` | Accede a un archivo subido por su nombre |
+
+---
+
+## Documentación del Modelo de Datos
+### Deporte
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idDeporte | Long | Auto-generado, clave primaria |
+| nombre    | String | No nulo |
+| tipo      | String | No nulo |
+| imagen    | String | URL de la imagen |
+| actividades | List | Relación uno a muchos |
+
+### Actividad
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idActividad | Long | Auto-generado, clave primaria |
+| nombre      | String | No nulo |
+| valoracion  | Float | Opcional |
+| precio      | Double | Opcional |
+| descripcion | String | Opcional |
+| imagen      | String | URL de la imagen |
+| disponibilidad | Boolean | Por defecto true |
+| deporte    | Deporte | Relación muchos a uno |
+
+### Usuario
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idUsuario | Int | Auto-generado, clave primaria |
+| email     | String | No nulo |
+| localizacion | String | No nulo |
+| contraseña | String | No nulo |
+| foto_perfil | String | URL de la imagen |
+| token | String | Autenticación |
+
+### 3.4. Comentario
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| id_comentario | Int | Auto-generado, clave primaria |
+| texto         | String | No nulo |
+| fecha         | Date | No nulo |
+| id_usuario    | Int | Relación con Usuario |
+| id_actividad  | Int | Relación con Actividad |
+
+
 ---
 
 ## 6. Interfaces
