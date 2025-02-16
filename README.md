@@ -181,7 +181,7 @@ CREATE TABLE UsuarioActividad (
 );
 ```
 
-## Documentación del Modelo de Datos
+### Documentación del Modelo de Datos
 ### Deporte
 | Atributo  | Tipo de Dato | Restricciones |
 |-----------|-------------|--------------|
