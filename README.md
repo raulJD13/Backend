@@ -411,7 +411,7 @@ Esta API está diseñada para gestionar actividades deportivas y conectar usuari
 
 - [Enlace compartido con la herramienta usada para el prototipado.](https://www.figma.com/proto/GR2rNyKmLXYsix9RUzXMuJ?node-id=0-1&t=yzrgLzM9ZPkakEQV-6)
 - [Enlace compartido del pdf.](https://drive.google.com/file/d/1otu_OyeZ03T8SiQLBPOOHylCt8Wdd-Yo/view)
-- 
+  
 
 ### 6.2 Usabilidad y Accesibilidad
 
@@ -661,8 +661,163 @@ Imagenes:
 ---
 
 ## 8. Tests de Prueba
+
 ### 8.1 Backend
-- Pruebas realizadas para garantizar el correcto funcionamiento del servidor.
+
+Las pruebas realizadas tienen como objetivo garantizar el correcto funcionamiento de los controladores del backend, asegurando que devuelvan los datos esperados y que interactúen correctamente con los servicios correspondientes.
+
+#### 8.1.1 Pruebas en `ActividadController`
+
+- **`testGetAllActividades`**:
+  - Prueba que el método `getAllActividades` del controlador retorne la lista completa de actividades.
+  - Se verifica que el servicio `ActividadService` es invocado una vez.
+  
+  ```java
+  @Test
+  void testGetAllActividades() {
+      when(actividadService.getAllActividades()).thenReturn(Arrays.asList(actividad1, actividad2));
+
+      List<Actividad> actividades = actividadController.getAllActividades();
+
+      assertNotNull(actividades);
+      assertEquals(2, actividades.size());
+      verify(actividadService, times(1)).getAllActividades();
+  }
+  ```
+
+- **`testGetActividadById`**:
+  - Prueba que el método `getActividadById` retorne la actividad correspondiente al ID proporcionado.
+  - Se verifica que el servicio es invocado correctamente y que los datos de la actividad coinciden con los esperados.
+  
+  ```java
+  @Test
+  void testGetActividadById() {
+      when(actividadService.getActividadById(1L)).thenReturn(actividad1);
+
+      Actividad actividad = actividadController.getActividadById(1L);
+
+      assertNotNull(actividad);
+      assertEquals("Fútbol", actividad.getNombre());
+      verify(actividadService, times(1)).getActividadById(1L);
+  }
+  ```
+
+#### 8.1.2 Pruebas en `ComentarioController`
+
+- **`testGetAllComentarios`**:
+  - Valida que el controlador retorne correctamente todos los comentarios disponibles.
+  - Se comprueba que el servicio es llamado una vez y que los datos son correctos.
+
+- **`testGetAllComentarios`**:
+  ```java
+  @Test
+  void testGetAllComentarios() {
+      when(comentarioService.getAllComentarios()).thenReturn(Arrays.asList(comentario1, comentario2));
+
+      List<Comentario> comentarios = comentarioController.getAllComentarios();
+
+      assertNotNull(comentarios);
+      assertEquals(2, comentarios.size());
+      verify(comentarioService, times(1)).getAllComentarios();
+  }
+  ```
+
+- **`testGetComentarioById`**:
+  - **`testGetComentarioById`**:
+  - Prueba la recuperación de un comentario por su ID.
+  - Se verifica la consistencia de los datos retornados.
+
+  ```java
+  @Test
+  void testGetComentarioById() {
+      when(comentarioService.getComentarioById(1L)).thenReturn(comentario1);
+
+      Comentario comentario = comentarioController.getComentarioById(1L);
+
+      assertNotNull(comentario);
+      assertEquals("Texto 1", comentario.getTexto());
+      verify(comentarioService, times(1)).getComentarioById(1L);
+  }
+  ```
+
+#### 8.1.3 Pruebas en `DeporteController`
+
+- **`testGetAllDeportes`**:
+  - Prueba que el controlador obtiene todos los deportes correctamente.
+  - Se verifica la cantidad de elementos devueltos y la llamada al servicio.
+
+- **`testGetAllDeportes`**:
+  ```java
+  @Test
+  void testGetAllDeportes() {
+      when(deporteService.getAllDeportes()).thenReturn(Arrays.asList(deporte1, deporte2));
+
+      List<Deporte> deportes = deporteController.getAllDeportes();
+
+      assertNotNull(deportes);
+      assertEquals(2, deportes.size());
+      verify(deporteService, times(1)).getAllDeportes();
+  }
+  ```
+
+- **`testGetDeporteById`**:
+  - **`testGetDeporteById`**:
+  - Se evalúa la correcta recuperación de un deporte específico.
+  - Se valida que los datos devueltos coincidan con los esperados.
+
+  ```java
+  @Test
+  void testGetDeporteById() {
+      when(deporteService.getDeporteById(1L)).thenReturn(deporte1);
+
+      Deporte deporte = deporteController.getDeporteById(1L);
+
+      assertNotNull(deporte);
+      assertEquals("Fútbol", deporte.getNombre());
+      verify(deporteService, times(1)).getDeporteById(1L);
+  }
+  ```
+
+#### 8.1.4 Pruebas en `UsuarioController`
+
+- **`testGetAllUsuarios`**:
+  - Asegura que el controlador devuelve la lista completa de usuarios.
+  - Se verifica la cantidad de elementos y que el servicio es llamado correctamente.
+
+- **`testGetAllUsuarios`**:
+  ```java
+  @Test
+  void testGetAllUsuarios() {
+      when(usuarioService.getAllUsuarios()).thenReturn(Arrays.asList(usuario1, usuario2));
+
+      List<Usuario> usuarios = usuarioController.getAllUsuarios();
+
+      assertNotNull(usuarios);
+      assertEquals(2, usuarios.size());
+      verify(usuarioService, times(1)).getAllUsuarios();
+  }
+  ```
+
+- **`testGetUsuarioById`**:
+  - **`testGetUsuarioById`**:
+  - Evalúa la correcta obtención de un usuario por ID.
+  - Se verifica que los datos retornados son los esperados.
+
+  ```java
+  @Test
+  void testGetUsuarioById() {
+      when(usuarioService.getUsuarioById(1L)).thenReturn(usuario1);
+
+      Usuario usuario = usuarioController.getUsuarioById(1L);
+
+      assertNotNull(usuario);
+      assertEquals("user1@example.com", usuario.getEmail());
+      verify(usuarioService, times(1)).getUsuarioById(1L);
+  }
+  ```
+
+Estos tests garantizan un correcto funcionamiento del backend, asegurando que las respuestas de los controladores sean consistentes con los datos esperados y que las interacciones con los servicios sean adecuadas.
+
 
 ### 8.2 Frontend
 
