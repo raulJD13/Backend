@@ -348,12 +348,58 @@ Los resultados obtenidos han permitido optimizar la experiencia general, asegura
 ---
 
 ## 7. Manuales
+
 ### 7.1 Manual de Instalación
-- Para desarrolladores (servidor y cliente).
-- Para técnicos que instalan la aplicación.
+#### Para desarrolladores (servidor y cliente)
+1. **Requisitos previos**:
+   - Node.js y npm para el cliente.
+   - Java y Spring Boot para el servidor.
+   - Base de datos SQL configurada y accesible.
+   - Git para gestionar versiones del código.
+2. **Instalación del servidor**:
+   - Clonar el repositorio con `git clone <repo>`.
+   - Acceder a la carpeta del backend.
+   - Configurar el archivo `application.properties` con las credenciales de la base de datos.
+   - Ejecutar `mvn clean install` y `mvn spring-boot:run`.
+3. **Instalación del cliente**:
+   - Acceder a la carpeta del frontend.
+   - Instalar dependencias con `npm install`.
+   - Ejecutar `npm start` para iniciar el cliente en modo desarrollo.
+
+#### Para técnicos que instalan la aplicación
+1. **Requisitos previos**:
+   - Servidor con Java y Spring Boot configurados.
+   - Base de datos SQL en ejecución.
+   - Entorno de ejecución Node.js para el cliente.
+2. **Despliegue**:
+   - Copiar los archivos del servidor al entorno de producción.
+   - Configurar variables de entorno necesarias.
+   - Iniciar el servidor con `java -jar app.jar`.
+   - Subir el frontend a un servidor web y configurar el dominio.
 
 ### 7.2 Manual de Usuario
-- Explicación del uso de la aplicación.
+#### Explicación del uso de la aplicación
+1. **Registro e inicio de sesión**:
+   - Crear una cuenta ingresando email, contraseña y ubicación.
+   - Confirmar el correo electrónico para activar la cuenta.
+   - Iniciar sesión con las credenciales registradas.
+2. **Exploración y participación en actividades**:
+   - Navegar por la lista de actividades disponibles.
+   - Filtrar por categoría, ubicación y fecha.
+   - Unirse a actividades con un solo clic.
+3. **Creación de actividades**:
+   - Acceder a la sección "Crear actividad".
+   - Completar los detalles como nombre, ubicación, fecha y número de participantes.
+   - Publicar la actividad para que otros usuarios se unan.
+4. **Interacción con otros usuarios**:
+   - Acceder al chat en tiempo real de cada actividad.
+   - Enviar mensajes y compartir detalles con los participantes.
+5. **Calificación y comentarios**:
+   - Valorar la actividad y los participantes una vez finalizada.
+   - Escribir comentarios sobre la experiencia.
+
+Este manual proporciona una guía clara tanto para la instalación de la aplicación como para su uso por parte de los usuarios.
+
 
 ### 7.3 Ayuda dentro de la App
 - Instrucciones accesibles desde la propia aplicación.
