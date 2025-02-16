@@ -316,10 +316,34 @@ El sistema permite la creación, gestión y participación en actividades deport
 - 
 
 ### 6.2 Usabilidad y Accesibilidad
-- Aspectos clave de usabilidad considerados.
-- Justificación del diseño en base a estos aspectos.
-- Proceso de estudio previo de usabilidad y accesibilidad.
-- Evaluación post-desarrollo con ejemplos visuales.
+
+#### Aspectos clave de usabilidad considerados
+Para garantizar una experiencia de usuario óptima, se han considerado los siguientes principios de usabilidad:
+- **Diseño intuitivo**: La interfaz sigue patrones conocidos en aplicaciones similares para facilitar la navegación.
+- **Flujo de usuario claro**: Se han diseñado procesos simples y directos para el registro, inicio de sesión, creación y participación en actividades.
+- **Minimización de la carga cognitiva**: Se utilizan iconos, colores y textos explicativos para guiar al usuario sin necesidad de largas instrucciones.
+- **Feedback inmediato**: Cada acción relevante proporciona una respuesta visual o auditiva para confirmar su ejecución.
+- **Consistencia visual y funcional**: Se mantiene un diseño homogéneo en todas las pantallas para evitar confusión.
+- **Optimización para dispositivos móviles**: La aplicación está diseñada para ofrecer una experiencia fluida en smartphones y tablets.
+
+#### Justificación del diseño en base a estos aspectos
+El diseño de la aplicación ha sido desarrollado con base en principios de diseño centrado en el usuario (User-Centered Design). La selección de colores, tipografías y distribución de elementos se ha realizado asegurando una lectura clara y un acceso rápido a las funcionalidades clave. Se priorizó la accesibilidad y simplicidad para facilitar su uso tanto a usuarios experimentados como a nuevos.
+
+#### Proceso de estudio previo de usabilidad y accesibilidad
+Antes del desarrollo, se llevaron a cabo las siguientes acciones:
+- **Análisis de aplicaciones similares**: Se estudiaron plataformas existentes para identificar mejores prácticas y evitar errores comunes.
+- **Creación de wireframes y prototipos**: Se diseñaron prototipos interactivos en Figma para evaluar la experiencia de usuario.
+- **Pruebas con usuarios potenciales**: Se realizaron pruebas de usabilidad con un grupo reducido de personas interesadas en actividades al aire libre para obtener retroalimentación.
+- **Aplicación de estándares de accesibilidad**: Se siguieron las directrices WCAG 2.1 para asegurar que la aplicación fuera accesible para personas con discapacidades visuales y motoras.
+
+#### Evaluación post-desarrollo con ejemplos visuales
+Tras el desarrollo de la aplicación, se ejecutaron pruebas de usabilidad y accesibilidad en entornos reales, con los siguientes resultados:
+- **Pruebas A/B**: Se compararon diferentes versiones de la interfaz para identificar la más efectiva.
+- **Encuestas de satisfacción**: Se recogieron opiniones de los primeros usuarios para realizar ajustes en la experiencia.
+- **Pruebas de accesibilidad**: Se validó el uso de lectores de pantalla, contraste de colores y navegación con teclado para asegurar compatibilidad con diferentes necesidades.
+- **Corrección de puntos débiles**: Se ajustaron elementos como el tamaño de botones, la claridad de mensajes de error y la disposición de información en pantallas clave.
+
+Los resultados obtenidos han permitido optimizar la experiencia general, asegurando que la aplicación sea inclusiva y fácil de usar para todos los usuarios.
 
 ---
 
