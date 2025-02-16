@@ -404,6 +404,97 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ### 7.3 Ayuda dentro de la App
 - Instrucciones accesibles desde la propia aplicación.
 
+#### DOCUMENTACIÓN DE AYUDA TERRASPLASH
+
+**Índice:**
+
+1. Introducción  
+2. Capturas de pantalla y funcionamiento de la documentación  
+3. Integración con la aplicación  
+4. Código fuente  
+5. Conclusiones  
+6. Referencias  
+
+**Introducción**
+
+La aplicación está diseñada para facilitar la conexión entre personas que desean participar en actividades deportivas al aire libre sin tener que hacerlo solas. Los usuarios pueden unirse a grupos que planifican actividades juntas, promoviendo la socialización y la compañía en diversos entornos deportivos. Las actividades abarcan desde el senderismo y ciclismo hasta la escalada, kayak y snorkel, asegurando que los usuarios encuentren compañía para sus intereses específicos y disfruten de estas actividades de manera segura y divertida.
+
+Para crear el sistema de ayuda de la aplicación, se ha elegido HelpNDoc, una herramienta robusta y eficiente para la creación de documentación. HelpNDoc permite generar ayudas contextuales, manuales de usuario y guías en diversos formatos, facilitando así el acceso a la información para los usuarios. La elección de HelpNDoc se debe a su facilidad de uso, capacidad de integrar multimedia y la posibilidad de generar documentación en múltiples idiomas, asegurando una experiencia de usuario inclusiva y completa.
+
+**Capturas de pantalla y funcionamiento de la documentación**
+
+Al iniciar la aplicación, si han pasado 3 segundos y no se ha realizado ninguna acción, aparecerá un ícono de información. Al presionarlo, el usuario será llevado al menú de manual de usuario, donde podrá buscar y aclarar todas sus dudas.
+
+El manual de usuario se presenta con una estructura clara:
+
+- A la izquierda, un índice con secciones detalladas sobre cómo ingresar a la aplicación, navegar por las páginas y utilizar el perfil de usuario.
+- Instrucciones paso a paso con imágenes para una comprensión más intuitiva.
+- Un buscador integrado para acceder rápidamente a temas específicos.
+
+**Integración con la aplicación**
+
+El sistema de ayuda está integrado de forma sencilla y accesible:
+- Al permanecer 3 segundos en la pantalla de inicio, aparece un ícono de información en la esquina superior izquierda.
+- Al presionarlo, el usuario es dirigido al manual de usuario, donde podrá consultar información detallada.
+
+**Código fuente**
+
+Para actualizar los estilos del manual de usuario, se han realizado ajustes en el código HTML generado por HelpNDoc:
+
+```html
+<style type="text/css">
+      nav {
+        width: 350px;
+      }
+      @media screen and (min-width: 769px) {
+        body.md-nav-expanded div#main {
+          margin-left: 350px;
+        }
+        body.md-nav-expanded header {
+          padding-left: 364px;
+        }
+      }
+
+      .navigation #inline-toc {
+        width: auto !important;
+      }
+      body {
+        background-color: #f8f8f8 !important;
+      }
+      header {
+        background-color: #f0f8ff; 
+        padding: 15px;
+        text-align: center;
+      }
+      nav#panel-left {
+        background-color: #fff0f5 !important;
+      }
+</style>
+```
+
+Para integrar la documentación en la aplicación:
+- Se convirtió la documentación de HelpNDoc a HTML.
+- Se copió el archivo HTML a la carpeta `public` de la aplicación.
+- Se enlazó mediante un `href`, nombrando el archivo como "DocumentacionAyuda" para facilitar su acceso.
+
+**Conclusiones**
+
+Es fundamental reconocer la importancia de la documentación como herramienta clave para la capacitación y el soporte al usuario. Se han seguido buenas prácticas como:
+- Uso de lenguaje claro y conciso.
+- Incorporación de gráficos y diagramas.
+- Estructuración del contenido de manera lógica y accesible.
+- Inclusión de un sistema de búsqueda eficiente.
+
+Además, se recomienda mantener la documentación actualizada y adaptada a las necesidades cambiantes de los usuarios. La retroalimentación de los usuarios puede mejorar significativamente la calidad y la relevancia de los manuales.
+
+**Testimonios**
+
+> "HelpNDoc es una herramienta extremadamente útil para crear documentación sin complicaciones innecesarias. Su estructura de herencia de estilos facilita la organización del contenido, y sin duda la utilizaré en futuros proyectos." – Raúl
+
+> "Tras completar esta tarea, me he dado cuenta de que HelpNDoc simplifica enormemente la generación de documentación sin necesidad de servidores complicados o procesos tediosos. Su integración con nuestra aplicación ha sido fluida y eficaz." – Eduardo Vega
+
+Imagenes:
+
 ---
 
 ## 8. Tests de Prueba
