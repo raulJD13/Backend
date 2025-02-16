@@ -181,8 +181,47 @@ CREATE TABLE UsuarioActividad (
 );
 ```
 
+## Documentación del Modelo de Datos
+### Deporte
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idDeporte | Long | Auto-generado, clave primaria |
+| nombre    | String | No nulo |
+| tipo      | String | No nulo |
+| imagen    | String | URL de la imagen |
+| actividades | List | Relación uno a muchos |
 
-- Referencia a archivos del módulo "Acceso a Datos".
+### Actividad
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idActividad | Long | Auto-generado, clave primaria |
+| nombre      | String | No nulo |
+| valoracion  | Float | Opcional |
+| precio      | Double | Opcional |
+| descripcion | String | Opcional |
+| imagen      | String | URL de la imagen |
+| disponibilidad | Boolean | Por defecto true |
+| deporte    | Deporte | Relación muchos a uno |
+
+### Usuario
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| idUsuario | Int | Auto-generado, clave primaria |
+| email     | String | No nulo |
+| localizacion | String | No nulo |
+| contraseña | String | No nulo |
+| foto_perfil | String | URL de la imagen |
+| token | String | Autenticación |
+
+### 3.4. Comentario
+| Atributo  | Tipo de Dato | Restricciones |
+|-----------|-------------|--------------|
+| id_comentario | Int | Auto-generado, clave primaria |
+| texto         | String | No nulo |
+| fecha         | Date | No nulo |
+| id_usuario    | Int | Relación con Usuario |
+| id_actividad  | Int | Relación con Actividad |
+
 
 ---
 
@@ -363,49 +402,6 @@ Esta API está diseñada para gestionar actividades deportivas y conectar usuari
 |---------|----------|--------------|
 | POST    | `/upload` | Sube un archivo (imagen) |
 | GET     | `/uploads/{filename}` | Accede a un archivo subido por su nombre |
-
----
-
-## Documentación del Modelo de Datos
-### Deporte
-| Atributo  | Tipo de Dato | Restricciones |
-|-----------|-------------|--------------|
-| idDeporte | Long | Auto-generado, clave primaria |
-| nombre    | String | No nulo |
-| tipo      | String | No nulo |
-| imagen    | String | URL de la imagen |
-| actividades | List | Relación uno a muchos |
-
-### Actividad
-| Atributo  | Tipo de Dato | Restricciones |
-|-----------|-------------|--------------|
-| idActividad | Long | Auto-generado, clave primaria |
-| nombre      | String | No nulo |
-| valoracion  | Float | Opcional |
-| precio      | Double | Opcional |
-| descripcion | String | Opcional |
-| imagen      | String | URL de la imagen |
-| disponibilidad | Boolean | Por defecto true |
-| deporte    | Deporte | Relación muchos a uno |
-
-### Usuario
-| Atributo  | Tipo de Dato | Restricciones |
-|-----------|-------------|--------------|
-| idUsuario | Int | Auto-generado, clave primaria |
-| email     | String | No nulo |
-| localizacion | String | No nulo |
-| contraseña | String | No nulo |
-| foto_perfil | String | URL de la imagen |
-| token | String | Autenticación |
-
-### 3.4. Comentario
-| Atributo  | Tipo de Dato | Restricciones |
-|-----------|-------------|--------------|
-| id_comentario | Int | Auto-generado, clave primaria |
-| texto         | String | No nulo |
-| fecha         | Date | No nulo |
-| id_usuario    | Int | Relación con Usuario |
-| id_actividad  | Int | Relación con Actividad |
 
 
 ---
