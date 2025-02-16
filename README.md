@@ -1121,7 +1121,11 @@ Este enfoque de planificación y organización basado en metodologías ágiles n
 ---
 
 ## 13. Conclusiones y Reflexiones
-- Opiniones auténticas sobre el desarrollo del proyecto
+Desarrollar este proyecto ha sido una experiencia enriquecedora, especialmente al trabajar en grupo por primera vez en un proyecto de esta magnitud. Desde el inicio, enfrentamos el reto de coordinar nuestras ideas, dividir tareas y encontrar una forma eficiente de comunicarnos. Aprendimos la importancia de la organización y el uso de herramientas colaborativas para mantener un flujo de trabajo claro y ordenado.
+
+Uno de los mayores aprendizajes fue la necesidad de adaptarnos a diferentes formas de trabajo y solucionar problemas en equipo. No siempre fue fácil ponernos de acuerdo, pero al final, logramos integrar nuestras habilidades y conocimientos para construir una aplicación funcional. Además, trabajar con tecnologías como Spring Boot, Angular, y bases de datos SQL nos permitió reforzar conceptos y enfrentar desafíos técnicos reales.
+
+Más allá de lo técnico, este proyecto nos dejó la enseñanza de que el desarrollo de software no es solo escribir código, sino también comunicación, planificación y toma de decisiones. Sin duda, esta experiencia nos preparó para futuros proyectos y nos dio una mejor perspectiva sobre el trabajo en equipo dentro del mundo del desarrollo de software.
 
 ---
 
@@ -1131,4 +1135,5 @@ Este enfoque de planificación y organización basado en metodologías ágiles n
 ## Anexos
 - Plantilla de funciones del sistema (modelo ERS).
 - Documentos adicionales de referencia.
+
 
