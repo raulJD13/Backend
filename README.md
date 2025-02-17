@@ -415,8 +415,8 @@ Esta API está diseñada para gestionar actividades deportivas y conectar usuari
 ### 6.1 Diseño Inicial: Mokups y Prototipado
 
 - [Enlace compartido con la herramienta usada para el prototipado.](https://www.figma.com/proto/GR2rNyKmLXYsix9RUzXMuJ?node-id=0-1&t=yzrgLzM9ZPkakEQV-6)
-- [Enlace compartido del pdf.](https://drive.google.com/file/d/1otu_OyeZ03T8SiQLBPOOHylCt8Wdd-Yo/view)
-  
+- [Enlace compartido del pdf.](https://github.com/raulJD13/Backend/blob/951501b03148325d79a4fc6e1ad77662254e0fbc/Images-Github/Outdoor.pdf)
+  ![](https://github.com/raulJD13/Backend/blob/951501b03148325d79a4fc6e1ad77662254e0fbc/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.25.06.png)
 
 ### 6.2 Usabilidad y Accesibilidad
 
