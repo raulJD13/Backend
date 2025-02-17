@@ -348,6 +348,8 @@ El sistema permite la creación, gestión y participación en actividades deport
 - Ionic
 - Angular
 
+![](https://github.com/raulJD13/Backend/blob/b8653979b7a39a9074c45d4337009f1aacb607a2/Images-Github/0.png)
+
 ###Documentación de la API - Introducción
 
 Esta API está diseñada para gestionar actividades deportivas y conectar usuarios interesados en deportes al aire libre. Permite a los usuarios registrarse, crear y unirse a actividades, gestionar comentarios y subir archivos.
