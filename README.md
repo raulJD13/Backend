@@ -60,7 +60,7 @@ El modelo de datos se basa en la gestión de usuarios, actividades y deportes, e
 
 #### Diagrama UML
 Imagen de Diagrama uml
-
+![image alt](https://github.com/raulJD13/Backend/blob/f5bb77210a058bf36bee2c9979ed985e3f059e23/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.18.48.png)
 
 #### Modelo Relacional
 **Usuario**
