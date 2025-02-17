@@ -1459,7 +1459,8 @@ Más allá de lo técnico, este proyecto nos dejó la enseñanza de que el desar
 ---
 
 ## 14. Enlaces y Referencias
-- ![](https://certidevs.com/tutorial-spring-boot-reactjs)
+- [CertiDevs - Tutorial Spring Boot ReactJS](https://certidevs.com/tutorial-spring-boot-reactjs)
+
 - []()
 - 
 
