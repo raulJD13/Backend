@@ -534,6 +534,7 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 #### Crear un nuevo deporte
 **Método:** POST  
 **Endpoint:** `/api/deportes`
+
 **Cuerpo de la solicitud (JSON):**
 ```json
 {
@@ -542,6 +543,7 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
     "imagen": "yoga.jpg"
 }
 ```
+
 **Respuesta:**
 ```json
 {
@@ -556,13 +558,127 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 **Método:** GET  
 **Endpoint:** `/api/deportes`
 
-####  Modificar un deporte
+#### Modificar un deporte
 **Método:** PUT  
 **Endpoint:** `/api/deportes/{idDeporte}`
 
 #### Eliminar un deporte
 **Método:** DELETE  
 **Endpoint:** `/api/deportes/{idDeporte}`
+
+---
+
+#### Ver actividades de un deporte específico
+**Método:** GET  
+**Endpoint:** `/api/actividades/deporte/{idDeporte}`
+
+#### Ver una actividad específica
+**Método:** GET  
+**Endpoint:** `/api/actividades/deporte/{id}`
+
+#### Crear una nueva actividad
+**Método:** POST  
+**Endpoint:** `/api/actividades`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+    "nombre": "Senderismo en la montaña",
+    "descripcion": "Ruta de 10 km con vistas panorámicas.",
+    "deporteId": 5,
+    "fecha": "2025-06-15T10:00:00Z"
+}
+```
+
+#### Actualizar una actividad existente
+**Método:** PUT  
+**Endpoint:** `/api/actividades/{id}`
+
+#### Borrar una actividad existente
+**Método:** DELETE  
+**Endpoint:** `/api/actividades/{id}`
+
+---
+
+#### Iniciar sesión y obtener token de autenticación
+**Método:** POST  
+**Endpoint:** `/api/usuarios/login`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+    "email": "usuario@example.com",
+    "password": "123456"
+}
+```
+
+**Respuesta:**
+```json
+{
+    "token": "eyJhbGciOiJIUzI1..."
+}
+```
+
+#### Obtener lista de usuarios
+**Método:** GET  
+**Endpoint:** `/api/usuarios`
+
+#### Obtener un usuario específico
+**Método:** GET  
+**Endpoint:** `/api/usuarios/{id}`
+
+#### Crear un nuevo usuario con su token
+**Método:** POST  
+**Endpoint:** `/api/usuarios`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+    "nombre": "Juan Pérez",
+    "email": "juan@example.com",
+    "password": "segura123"
+}
+```
+
+#### Actualizar un usuario existente
+**Método:** PUT  
+**Endpoint:** `/api/usuarios/{id}`
+
+#### Eliminar un usuario existente
+**Método:** DELETE  
+**Endpoint:** `/api/usuarios/{id}`
+
+---
+
+#### Obtener lista de comentarios
+**Método:** GET  
+**Endpoint:** `/api/comentarios`
+
+#### Obtener un comentario específico
+**Método:** GET  
+**Endpoint:** `/api/comentarios/{id}`
+
+#### Crear un nuevo comentario asociado a un usuario
+**Método:** POST  
+**Endpoint:** `/api/comentarios?idUsuario={idUsuario}`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+    "contenido": "Excelente actividad, muy recomendada!",
+    "fecha": "2025-02-17T12:34:56Z"
+}
+```
+
+#### Actualizar un comentario existente
+**Método:** PUT  
+**Endpoint:** `/api/comentarios/{id}`
+
+#### Eliminar un comentario existente
+**Método:** DELETE  
+**Endpoint:** `/api/comentarios/{id}`
+
+
 
 ---
 
