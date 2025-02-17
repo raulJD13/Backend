@@ -1459,7 +1459,9 @@ Más allá de lo técnico, este proyecto nos dejó la enseñanza de que el desar
 ---
 
 ## 14. Enlaces y Referencias
-- Bibliografía, documentación y recursos utilizados.
+- [](https://certidevs.com/tutorial-spring-boot-reactjs)
+- []()
+- 
 
 ## Anexos
 - Plantilla de funciones del sistema (modelo ERS).
