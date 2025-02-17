@@ -417,7 +417,9 @@ Esta API está diseñada para gestionar actividades deportivas y conectar usuari
 - [Enlace compartido con la herramienta usada para el prototipado.](https://www.figma.com/proto/GR2rNyKmLXYsix9RUzXMuJ?node-id=0-1&t=yzrgLzM9ZPkakEQV-6)
 - [Enlace compartido del pdf.](https://github.com/raulJD13/Backend/blob/951501b03148325d79a4fc6e1ad77662254e0fbc/Images-Github/Outdoor.pdf)
   ![](https://github.com/raulJD13/Backend/blob/951501b03148325d79a4fc6e1ad77662254e0fbc/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.25.06.png)
-
+    
+  ![](https://github.com/raulJD13/Backend/blob/37f223461334e0a30ae81e5f3f3c16af6f3a43ee/Images-Github/image.png)
+  
 ### 6.2 Usabilidad y Accesibilidad
 
 #### Aspectos clave de usabilidad considerados
@@ -1435,6 +1437,9 @@ La comunicación constante es clave en las metodologías ágiles, por lo que uti
 
 ### Planificación de Tareas y Seguimiento
 Las tareas se organizan en el backlog del proyecto, donde se priorizan según su importancia y su valor para el negocio. Durante cada sprint, se seleccionan las tareas del backlog que se abordarán en el ciclo, y al final del sprint se evalúa el progreso. Las historias de usuario se descomponen en tareas más pequeñas que pueden completarse dentro de un sprint.
+
+
+![](https://github.com/raulJD13/Backend/blob/37f223461334e0a30ae81e5f3f3c16af6f3a43ee/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2015.50.35.png)
 
 Cada tarea tiene un estimado de esfuerzo, generalmente calculado en horas o puntos de historia. Esto permite a los desarrolladores gestionar su tiempo y garantizar que se cumplan los objetivos del sprint.
 
