@@ -558,13 +558,19 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 **Método:** GET  
 **Endpoint:** `/api/deportes`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/3.png)
+
 #### Modificar un deporte
 **Método:** PUT  
 **Endpoint:** `/api/deportes/{idDeporte}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/4.png) 
+
 #### Eliminar un deporte
 **Método:** DELETE  
 **Endpoint:** `/api/deportes/{idDeporte}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/6.png) 
 
 ---
 
@@ -572,13 +578,18 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 **Método:** GET  
 **Endpoint:** `/api/actividades/deporte/{idDeporte}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/8.png)
+
 #### Ver una actividad específica
 **Método:** GET  
 **Endpoint:** `/api/actividades/deporte/{id}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/9.png)
+
 #### Crear una nueva actividad
 **Método:** POST  
 **Endpoint:** `/api/actividades`
+
 
 **Cuerpo de la solicitud (JSON):**
 ```json
@@ -589,14 +600,26 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
     "fecha": "2025-06-15T10:00:00Z"
 }
 ```
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/10.png)
+
 
 #### Actualizar una actividad existente
 **Método:** PUT  
 **Endpoint:** `/api/actividades/{id}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/12.png)
+
 #### Borrar una actividad existente
 **Método:** DELETE  
 **Endpoint:** `/api/actividades/{id}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/14.png)
+
+#### Ver todas las actividades
+**Método:** GET
+**Endpoint** `/api/actividades`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/15.png) 
 
 ---
 
@@ -618,14 +641,19 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
     "token": "eyJhbGciOiJIUzI1..."
 }
 ```
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/16.png)
 
 #### Obtener lista de usuarios
 **Método:** GET  
 **Endpoint:** `/api/usuarios`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/17.png)
+
 #### Obtener un usuario específico
 **Método:** GET  
 **Endpoint:** `/api/usuarios/{id}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/18.png)
 
 #### Crear un nuevo usuario con su token
 **Método:** POST  
@@ -639,14 +667,19 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
     "password": "segura123"
 }
 ```
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/19.png)
 
 #### Actualizar un usuario existente
 **Método:** PUT  
 **Endpoint:** `/api/usuarios/{id}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/20.png)
+
 #### Eliminar un usuario existente
 **Método:** DELETE  
 **Endpoint:** `/api/usuarios/{id}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/21.png)
 
 ---
 
@@ -654,9 +687,13 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 **Método:** GET  
 **Endpoint:** `/api/comentarios`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/23.png)
+
 #### Obtener un comentario específico
 **Método:** GET  
 **Endpoint:** `/api/comentarios/{id}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/24.png)
 
 #### Crear un nuevo comentario asociado a un usuario
 **Método:** POST  
@@ -670,15 +707,21 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 }
 ```
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/25.png)
+
 #### Actualizar un comentario existente
 **Método:** PUT  
 **Endpoint:** `/api/comentarios/{id}`
+
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/26.png)
 
 #### Eliminar un comentario existente
 **Método:** DELETE  
 **Endpoint:** `/api/comentarios/{id}`
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/27.png)
 
+![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/28.png)
 
 ---
 
