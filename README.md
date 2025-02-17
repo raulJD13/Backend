@@ -663,6 +663,11 @@ Además, se recomienda mantener la documentación actualizada y adaptada a las n
 
 Imagenes:
 
+![](https://github.com/raulJD13/Backend/blob/db0f423164e5cfd7355940a2cdd7894fed19de8b/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.46.51.png)
+![](https://github.com/raulJD13/Backend/blob/db0f423164e5cfd7355940a2cdd7894fed19de8b/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.47.12.png)
+![](https://github.com/raulJD13/Backend/blob/db0f423164e5cfd7355940a2cdd7894fed19de8b/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.47.38.png)
+
+
 ---
 
 ## 8. Tests de Prueba
