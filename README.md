@@ -1460,12 +1460,23 @@ Más allá de lo técnico, este proyecto nos dejó la enseñanza de que el desar
 
 ## 14. Enlaces y Referencias
 - [CertiDevs - Tutorial Spring Boot ReactJS](https://certidevs.com/tutorial-spring-boot-reactjs)
+- [TheServerSide - Hibernate SessionFactory Example](https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/3-ways-to-build-a-Hibernate-SessionFactory-in-Java-by-example)
+- [YouTube - Video sobre Hibernate y Java](https://www.youtube.com/watch?v=74sClDEYSQ4)
+- [Parasoft - Tutorial de JUnit](https://es.parasoft.com/blog/junit-tutorial-setting-up-writing-and-running-java-unit-tests/)
+- [Softtek - Testing unitario en Java](https://blog.softtek.com/es/testing-unitario)
+- [Chuidiang - Ejemplo de JUnit](https://old.chuidiang.org/java/herramientas/test-automaticos/ejemplo-junit.php)
+- [DataArt - Testing en Java](https://www.dataart.team/es/articles/testing-en-java)
+- [Funciona en mi máquina - Pruebas unitarias con JUnit y Mockito](https://funcionaenmimaquina.com/aprende-a-crear-pruebas-unitarias-con-junit-y-mockito-en-15-minutos/)
 
-- []()
-- 
 
 ## Anexos
 - Plantilla de funciones del sistema (modelo ERS).
 - Documentos adicionales de referencia.
-
-
+- Guía rápida de uso de la aplicación.
+- Especificaciones técnicas del sistema.
+- Manual de instalación y configuración.
+- Notas de la última reunión del equipo.
+- Lista de control de calidad.
+- Plan de pruebas y casos de uso.
+- Diagramas de flujo del proceso.
+- Informe de análisis de riesgos.
