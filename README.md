@@ -52,7 +52,9 @@ La aplicación cuenta con funcionalidades clave como registro e inicio de sesió
 El modelo de datos se basa en la gestión de usuarios, actividades y deportes, estableciendo relaciones que permiten una organización eficiente de la información y la interacción entre los usuarios.
 
 #### Esquema de Entidad Relación
-[Imagen Esquema de Entidad Relacion](https://github.com/raulJD13/Backend/blob/main/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.18.48.png?raw=true)
+
+![Esquema de Entidad Relación](https://github.com/raulJD13/Backend/blob/f5bb77210a058bf36bee2c9979ed985e3f059e23/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.18.48.png)
+
 **Diagrama básico MER:**
 - Usuario (1) ↔ (M) UsuarioActividad (M) ↔ (1) Actividad
 - Deporte (1) ↔ (M) Actividad
@@ -60,7 +62,6 @@ El modelo de datos se basa en la gestión de usuarios, actividades y deportes, e
 
 #### Diagrama UML
 Imagen de Diagrama uml
-![image alt](https://github.com/raulJD13/Backend/blob/f5bb77210a058bf36bee2c9979ed985e3f059e23/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2013.18.48.png)
 
 #### Modelo Relacional
 **Usuario**
