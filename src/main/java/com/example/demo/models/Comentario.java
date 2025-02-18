@@ -1,6 +1,8 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+
 import java.sql.Date;
 
 @Entity
@@ -13,6 +15,7 @@ public class Comentario {
     private Long idComentario;
    
     @Column(nullable = false)
+    @Size(min = 3, max = 200, message = "El comentario es demasiado largo")
     private String texto;
    
     private Date fecha;
@@ -30,7 +33,18 @@ public class Comentario {
     public Comentario() {
     }
 
-    public Long getIdComentario() {
+    
+    public Comentario(Long idComentario, String texto, Date fecha, Actividad actividad, Usuario usuario) {
+		super();
+		this.idComentario = idComentario;
+		this.texto = texto;
+		this.fecha = fecha;
+		this.actividad = actividad;
+		this.usuario = usuario;
+	}
+
+
+	public Long getIdComentario() {
         return idComentario;
     }
 

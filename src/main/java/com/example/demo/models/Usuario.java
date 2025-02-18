@@ -5,6 +5,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.validation.constraints.Email;
 
 @Entity
 @Table(name = "usuario")
@@ -16,6 +17,7 @@ public class Usuario {
     private Long idUsuario;
 
     @Column(nullable = false)
+    @Email(message = "Debe ingresar un email válido")
     private String email;
 
     @Column(name = "localizacion")

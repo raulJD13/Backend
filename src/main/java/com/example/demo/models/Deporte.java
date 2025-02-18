@@ -1,6 +1,9 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +16,34 @@ public class Deporte {
     private Long idDeporte;
 
     @Column(nullable = false)
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
     private String nombre;
 
     public Deporte() {
     }
 
-    @Column(nullable = false)
+    
+    
+
+
+
+
+	@Column(nullable = false)
+	@Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "El tipo solo puede contener letras y espacios")
+
     private String tipo;
 
     private String imagen;
+    
+    public Deporte(Long idDeporte, String nombre, String tipo, String imagen) {
+		super();
+		this.idDeporte = idDeporte;
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.imagen = imagen;
+		
+		
+	}
 
     // Getters y setters
     public Long getIdDeporte() {

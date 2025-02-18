@@ -1,6 +1,9 @@
 package com.example.demo.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -14,10 +17,12 @@ public class Actividad {
     private Long idActividad;
 
     @Column(nullable = false)
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
     private String nombre;
 
     private Float valoracion;
-
+    
+    @PositiveOrZero(message = "El precio no puede ser negativo")
     private Double precio;
 
     private String descripcion;
@@ -60,8 +65,36 @@ public class Actividad {
     // Constructores
     public Actividad() {
     }
+    
+    
 
-    // Getters y setters
+    public Actividad(Long idActividad, String nombre, Float valoracion, Double precio, String descripcion,
+			Boolean tendencia, Boolean evento, Boolean bookmark, Boolean favoritas, Boolean unido, Double latitud,
+			Double longitud, Dificultad dificultad, String imagen, Boolean disponibilidad, Deporte deporte,
+			Set<Usuario> usuarios) {
+		super();
+		this.idActividad = idActividad;
+		this.nombre = nombre;
+		this.valoracion = valoracion;
+		this.precio = precio;
+		this.descripcion = descripcion;
+		this.tendencia = tendencia;
+		this.evento = evento;
+		this.bookmark = bookmark;
+		this.favoritas = favoritas;
+		this.unido = unido;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.dificultad = dificultad;
+		this.imagen = imagen;
+		this.disponibilidad = disponibilidad;
+		this.deporte = deporte;
+		this.usuarios = usuarios;
+	}
+
+
+
+	// Getters y setters
     public Long getIdActividad() {
         return idActividad;
     }
