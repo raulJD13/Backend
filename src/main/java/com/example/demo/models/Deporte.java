@@ -1,8 +1,15 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 
@@ -22,6 +29,13 @@ public class Deporte {
     private String tipo;
 
     private String imagen;
+
+    public Deporte(Long idDeporte, String imagen, String nombre, String tipo) {
+        this.idDeporte = idDeporte;
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.tipo = tipo;
+    }
 
     // Getters y setters
     public Long getIdDeporte() {

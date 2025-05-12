@@ -1,10 +1,20 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Actividad {
@@ -59,6 +69,20 @@ public class Actividad {
 
     // Constructores
     public Actividad() {
+    }
+
+    public Actividad(Deporte deporte, String descripcion, Dificultad dificultad, Long idActividad, String imagen, Double latitud, Double longitud, String nombre, Double precio, Set<Usuario> usuarios, Float valoracion) {
+        this.deporte = deporte;
+        this.descripcion = descripcion;
+        this.dificultad = dificultad;
+        this.idActividad = idActividad;
+        this.imagen = imagen;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.usuarios = usuarios;
+        this.valoracion = valoracion;
     }
 
     // Getters y setters
