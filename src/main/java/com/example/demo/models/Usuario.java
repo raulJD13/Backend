@@ -1,6 +1,5 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -99,7 +99,6 @@ class UsuarioControllerTest {
     }
 
     
-
     @Test
     void testLoginFailure() {
         when(usuarioService.findByEmail("user1@example.com")).thenReturn(usuario1);
