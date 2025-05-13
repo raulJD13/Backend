@@ -32,7 +32,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http, JWTAuthorizati
     http
             .cors(cors -> cors.configurationSource(request -> {
         var corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:8100"));
+        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         corsConfig.setAllowCredentials(true);
@@ -43,6 +43,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http, JWTAuthorizati
         .authorizeHttpRequests(auth -> auth
             .requestMatchers(HttpMethod.POST, "/api/usuarios/login").permitAll()
             .requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
+            .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
             .anyRequest().authenticated() // Exige autenticación para cualquier otra solicitud
         )
         .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class); // Usa el filtro con clave inyectada
