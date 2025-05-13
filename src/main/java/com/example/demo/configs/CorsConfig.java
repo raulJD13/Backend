@@ -17,7 +17,7 @@ public class CorsConfig implements WebMvcConfigurer {
         CorsConfiguration config = new CorsConfiguration();
        
         // Debes usar la URL de tu frontend en lugar de "*"
-        config.setAllowedOrigins(Arrays.asList("http://localhost:8100")); // Cambia esto por el dominio del frontend
+        config.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // Cambia esto por el dominio del frontend
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
         config.setAllowCredentials(true); // Permitir credenciales
