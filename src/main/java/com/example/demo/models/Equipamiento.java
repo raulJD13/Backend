@@ -1,6 +1,4 @@
-// Package: com.example.demo.model
 package com.example.demo.models;
-
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,27 +7,32 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-
 @Entity
+
 @Table(name = "Equipamiento")
+
 public class Equipamiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_equipamiento")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
+    @Column(name = "tipo", length = 50)
     private String tipo;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "descripcion", columnDefinition = "TEXT")
     private String descripcion;
 
+    @Column(name = "imagen", length = 255)
     private String imagen;
 
     // Constructors
-    public Equipamiento() {}
+    public Equipamiento() {
+    }
 
     public Equipamiento(String nombre, String tipo, String descripcion, String imagen) {
         this.nombre = nombre;
@@ -40,7 +43,9 @@ public class Equipamiento {
 
     // Getters and setters
     public Long getId() {
+
         return id;
+
     }
 
     public void setId(Long id) {
@@ -78,4 +83,5 @@ public class Equipamiento {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
+
 }

@@ -43,6 +43,7 @@ public class TerraSplashApplication {
                 .requestMatchers(HttpMethod.POST, "/api/usuarios/login").permitAll()
                 .requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
                 .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
+                
                 .anyRequest().authenticated() // Exige autenticación para cualquier otra solicitud
                 )
                 .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class); // Usa el filtro con clave inyectada

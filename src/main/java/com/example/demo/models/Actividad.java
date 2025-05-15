@@ -1,12 +1,9 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.PositiveOrZero;
-import jakarta.validation.constraints.Size;
-
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,21 +16,31 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idActividad")
 
 @Entity
+
 public class Actividad {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idActividad;
 
     @Column(nullable = false)
+
     @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
+
     private String nombre;
 
     private Float valoracion;
-    
+
     @PositiveOrZero(message = "El precio no puede ser negativo")
+
     private Double precio;
 
     private String descripcion;
@@ -53,6 +60,7 @@ public class Actividad {
     private Double longitud;
 
     @Enumerated(EnumType.STRING)
+
     private Dificultad dificultad;
 
     private String imagen;
@@ -60,52 +68,73 @@ public class Actividad {
     private Boolean disponibilidad = true;
 
     @ManyToOne
+
     @JoinColumn(name = "id_deporte", nullable = false)
+
     private Deporte deporte;
 
-    // Relación ManyToMany con Usuario
     @ManyToMany
-   @JsonIgnore
-    @JoinTable(
-        name = "usuarioactividad", // Nombre de la tabla intermedia
-        joinColumns = @JoinColumn(name = "actividad_id"), // Llave foránea hacia Actividad
-        inverseJoinColumns = @JoinColumn(name = "usuario_id") // Llave foránea hacia Usuario
-    )
-    private Set<Usuario> usuarios; // La lista de usuarios que están asociados a esta actividad
 
-    // Constructores
+    @JoinTable(
+            name = "usuarioactividad",
+            joinColumns = @JoinColumn(name = "actividad_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+    )
+
+    private Set<Usuario> usuarios;
+
     public Actividad() {
     }
-    
-    
 
+    // Constructor con todos los campos
     public Actividad(Long idActividad, String nombre, Float valoracion, Double precio, String descripcion,
-			Boolean tendencia, Boolean evento, Boolean bookmark, Boolean favoritas, Boolean unido, Double latitud,
-			Double longitud, Dificultad dificultad, String imagen, Boolean disponibilidad, Deporte deporte,
-			Set<Usuario> usuarios) {
-		super();
-		this.idActividad = idActividad;
-		this.nombre = nombre;
-		this.valoracion = valoracion;
-		this.precio = precio;
-		this.descripcion = descripcion;
-		this.tendencia = tendencia;
-		this.evento = evento;
-		this.bookmark = bookmark;
-		this.favoritas = favoritas;
-		this.unido = unido;
-		this.latitud = latitud;
-		this.longitud = longitud;
-		this.dificultad = dificultad;
-		this.imagen = imagen;
-		this.disponibilidad = disponibilidad;
-		this.deporte = deporte;
-		this.usuarios = usuarios;
-	}
+            Boolean tendencia, Boolean evento, Boolean bookmark, Boolean favoritas, Boolean unido,
+            Double latitud, Double longitud, Dificultad dificultad, String imagen, Boolean disponibilidad,
+            Deporte deporte, Set<Usuario> usuarios) {
 
+        this.idActividad = idActividad;
 
+        this.nombre = nombre;
 
-	// Getters y setters
+        this.valoracion = valoracion;
+
+        this.precio = precio;
+
+        this.descripcion = descripcion;
+
+        this.tendencia = tendencia;
+
+        this.evento = evento;
+
+        this.bookmark = bookmark;
+
+        this.favoritas = favoritas;
+
+        this.unido = unido;
+
+        this.latitud = latitud;
+
+        this.longitud = longitud;
+
+        this.dificultad = dificultad;
+
+        this.imagen = imagen;
+
+        this.disponibilidad = disponibilidad;
+
+        this.deporte = deporte;
+
+        this.usuarios = usuarios;
+
+    }
+
+    public enum Dificultad {
+
+        facil, intermedia, dificil;
+
+    }
+
+    // Getters y setters
     public Long getIdActividad() {
         return idActividad;
     }
@@ -242,7 +271,4 @@ public class Actividad {
         this.usuarios = usuarios;
     }
 
-    public enum Dificultad {
-        facil, intermedia, dificil;
-    }
 }

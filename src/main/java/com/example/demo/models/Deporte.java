@@ -1,11 +1,12 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.Size;
+
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -14,86 +15,100 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
+
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idDeporte")
 
 @Entity
 
 public class Deporte {
 
+
+
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long idDeporte;
 
+
+
     @Column(nullable = false)
+
     @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
+
     private String nombre;
 
-    public Deporte() {
-    }
-
-    
-    
 
 
+    @Column(nullable = false)
 
-
-	@Column(nullable = false)
-	@Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "El tipo solo puede contener letras y espacios")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "El tipo solo puede contener letras y espacios")
 
     private String tipo;
 
+
+
     private String imagen;
-    
-    public Deporte(Long idDeporte, String nombre, String tipo, String imagen) {
-		super();
-		this.idDeporte = idDeporte;
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.imagen = imagen;
-		
-		
-	}
 
-    public Deporte(Long idDeporte, String imagen, String nombre, String tipo) {
-        this.idDeporte = idDeporte;
-        this.imagen = imagen;
-        this.nombre = nombre;
-        this.tipo = tipo;
-    }
 
-    // Getters y setters
-    public Long getIdDeporte() {
-        return idDeporte;
-    }
-
-    public void setIdDeporte(Long idDeporte) {
-        this.idDeporte = idDeporte;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
-    public String getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
 
     @OneToMany(mappedBy = "deporte", cascade = CascadeType.ALL, orphanRemoval = true)
+
     private List<Actividad> actividades = new ArrayList<>();
 
+
+
+    public Deporte() {}
+
+
+
+    public Deporte(Long idDeporte, String nombre, String tipo, String imagen) {
+
+        this.idDeporte = idDeporte;
+
+        this.nombre = nombre;
+
+        this.tipo = tipo;
+
+        this.imagen = imagen;
+
+    }
+
+
+
+    // Getters y Setters
+
+    public Long getIdDeporte() { return idDeporte; }
+
+    public void setIdDeporte(Long idDeporte) { this.idDeporte = idDeporte; }
+
+
+
+    public String getNombre() { return nombre; }
+
+    public void setNombre(String nombre) { this.nombre = nombre; }
+
+
+
+    public String getTipo() { return tipo; }
+
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+
+
+    public String getImagen() { return imagen; }
+
+    public void setImagen(String imagen) { this.imagen = imagen; }
+
+
+
+    public List<Actividad> getActividades() { return actividades; }
+
+    public void setActividades(List<Actividad> actividades) { this.actividades = actividades; }
+
 }
+

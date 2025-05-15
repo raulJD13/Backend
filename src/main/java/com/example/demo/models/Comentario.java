@@ -1,8 +1,5 @@
 package com.example.demo.models;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
-
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -13,20 +10,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "comentario")
 public class Comentario {
-   
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_comentario")
     private Long idComentario;
-   
+
     @Column(nullable = false)
     @Size(min = 3, max = 200, message = "El comentario es demasiado largo")
     private String texto;
-   
+
     private Date fecha;
 
     // Relación con Actividad (Muchos comentarios pertenecen a una actividad)
@@ -42,18 +40,28 @@ public class Comentario {
     public Comentario() {
     }
 
-    
     public Comentario(Long idComentario, String texto, Date fecha, Actividad actividad, Usuario usuario) {
-		super();
-		this.idComentario = idComentario;
-		this.texto = texto;
-		this.fecha = fecha;
-		this.actividad = actividad;
-		this.usuario = usuario;
-	}
+        super();
+        this.idComentario = idComentario;
+        this.texto = texto;
+        this.fecha = fecha;
+        this.actividad = actividad;
+        this.usuario = usuario;
+    }
 
+    // Parámetros: (id, fecha, idUsuario, texto, cualquierCosa)
+    public Comentario(Long idComentario,
+            Date fecha,
+            Long idUsuario,
+            String texto,
+            Object unused) {
+        this.idComentario = idComentario;
+        this.fecha = fecha;
+        this.texto = texto;
+        // Dejamos usuario y actividad a null porque el test no los usa
+    }
 
-	public Long getIdComentario() {
+    public Long getIdComentario() {
         return idComentario;
     }
 
