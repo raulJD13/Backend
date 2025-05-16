@@ -1,4 +1,4 @@
-# Documentación del Proyecto
+# Documentación del Proyect
 
 ## Índice
 1. Introducción / Descripción
