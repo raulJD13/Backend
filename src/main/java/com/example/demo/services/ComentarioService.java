@@ -64,4 +64,9 @@ public class ComentarioService {
     public void deleteComentario(Long id) {
         comentarioRepository.deleteById(id);
     }
+    
+ // Obtener comentarios por id de actividad
+    public List<Comentario> getComentariosByActividadId(Long idActividad) {
+        return comentarioRepository.findByActividad_IdActividad(idActividad);
+    }
 }

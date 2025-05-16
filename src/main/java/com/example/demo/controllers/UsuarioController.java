@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.crypto.SecretKey;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,15 +32,20 @@ public class UsuarioController {
         String email = requestBody.get("email");
         String contraseña = requestBody.get("contraseña");
 
-        // Verificar si el usuario existe en la base de datos
         Usuario usuario = usuarioService.findByEmail(email);
+
         if (usuario == null || !usuario.getContraseña().equals(contraseña)) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"error\": \"Credenciales incorrectas\"}");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(Map.of("error", "Credenciales incorrectas"));
         }
 
-        // Si el usuario existe y la contraseña es correcta, generamos el token
         String token = getJWTToken(email);
-        return ResponseEntity.ok().body("{\"token\": \"" + token + "\"}");
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("token", token);
+        response.put("idUsuario", usuario.getIdUsuario()); // 👈 Agregamos el ID del usuario
+
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping

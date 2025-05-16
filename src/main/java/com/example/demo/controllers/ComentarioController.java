@@ -46,4 +46,9 @@ public class ComentarioController {
     public void deleteComentario(@PathVariable Long id) {
         comentarioService.deleteComentario(id);
     }
+    
+    @GetMapping("/actividad/{idActividad}")
+    public List<Comentario> getComentariosByActividad(@PathVariable Long idActividad) {
+        return comentarioService.getComentariosByActividadId(idActividad);
+    }
 }

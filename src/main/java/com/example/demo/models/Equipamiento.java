@@ -1,9 +1,13 @@
 package com.example.demo.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Equipamiento")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Equipamiento {
 
     @Id
@@ -23,7 +27,6 @@ public class Equipamiento {
     @Column(name = "imagen", length = 255)
     private String imagen;
 
-    // Constructors
     public Equipamiento() {}
 
     public Equipamiento(String nombre, String tipo, String descripcion, String imagen) {
@@ -33,7 +36,8 @@ public class Equipamiento {
         this.imagen = imagen;
     }
 
-    // Getters and setters
+    // Getters y setters
+
     public Long getId() {
         return id;
     }
