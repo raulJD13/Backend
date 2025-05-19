@@ -30,4 +30,7 @@ public class ActividadEquipamientoService {
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
+    public List<ActividadEquipamiento> findByActividadId(Long actividadId) {
+        return repository.findAllByActividad_IdActividad(actividadId);
+    }
 }
