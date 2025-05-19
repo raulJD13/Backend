@@ -1,0 +1,14 @@
+package com.example.demo.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.demo.models.ActividadEquipamiento;
+
+@Repository
+public interface ActividadEquipamientoRepository extends JpaRepository<ActividadEquipamiento, Long> {
+    // Nombre que coincide con el getter getIdActividad() de Actividad
+    List<ActividadEquipamiento> findAllByActividad_IdActividad(Long actividadId);
+}

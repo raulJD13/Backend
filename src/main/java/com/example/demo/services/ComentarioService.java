@@ -1,11 +1,23 @@
 package com.example.demo.services;
 
+<<<<<<< Updated upstream
 import com.example.demo.repository.ComentarioRepository;
 import com.example.demo.models.Comentario;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+=======
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.models.Comentario;
+import com.example.demo.models.Usuario;
+import com.example.demo.repository.ComentarioRepository;
+import com.example.demo.repository.UsuarioRepository;
+>>>>>>> Stashed changes
 
 @Service
 public class ComentarioService {
@@ -48,5 +60,10 @@ public class ComentarioService {
     // Eliminar un usuario
     public void deleteComentario(Long id) {
         comentarioRepository.deleteById(id);
+    }
+    
+    // Obtener comentarios por id de actividad
+    public List<Comentario> getComentariosByActividadId(Long idActividad) {
+        return comentarioRepository.findByActividad_IdActividad(idActividad);
     }
 }

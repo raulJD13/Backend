@@ -1,11 +1,35 @@
 package com.example.demo.models;
 
+<<<<<<< Updated upstream
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "actividad")
+=======
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
+
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "idActividad")
+@Entity
+>>>>>>> Stashed changes
 public class Actividad {
 
     @Id
@@ -13,10 +37,18 @@ public class Actividad {
     private Long idActividad;
 
     @Column(nullable = false)
+<<<<<<< Updated upstream
+=======
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
+>>>>>>> Stashed changes
     private String nombre;
 
     private Float valoracion;
 
+<<<<<<< Updated upstream
+=======
+    @PositiveOrZero(message = "El precio no puede ser negativo")
+>>>>>>> Stashed changes
     private Double precio;
 
     private String descripcion;
@@ -46,8 +78,19 @@ public class Actividad {
     @JoinColumn(name = "id_deporte", nullable = false)
     private Deporte deporte;
 
+<<<<<<< Updated upstream
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Comentario> comentarios;
+=======
+    @ManyToMany
+    @JoinTable(
+            name = "usuarioactividad",
+            joinColumns = @JoinColumn(name = "actividad_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+    )
+
+    private Set<Usuario> usuarios;
+>>>>>>> Stashed changes
 
     public Actividad() {
     }

@@ -37,20 +37,38 @@ public class ComentarioController {
 
     // Crear un nuevo usuario
     @PostMapping
+<<<<<<< Updated upstream
     public Comentario createComentario(@RequestBody Comentario comentario) {
         return comentarioService.createComentario(comentario);
+=======
+    public Comentario createComentario(@RequestBody Comentario comentario,
+            @RequestParam Long idUsuario) {
+        return comentarioService.createComentario(comentario, idUsuario);
+>>>>>>> Stashed changes
     }
 
     // Actualizar un usuario existente
     @PutMapping("/{id}")
+<<<<<<< Updated upstream
     public Comentario updateComentario(@PathVariable Long id, @RequestBody Comentario comentario) {
         return comentarioService.updateComentario(id, comentario);
+=======
+    public Comentario updateComentario(@PathVariable Long id,
+            @RequestBody Comentario comentario,
+            @RequestParam(required = false) Long idUsuario) {
+        return comentarioService.updateComentario(id, comentario, idUsuario);
+>>>>>>> Stashed changes
     }
 
     // Eliminar un usuario
     @DeleteMapping("/{id}")
     public void deleteComentario(@PathVariable Long id) {
         comentarioService.deleteComentario(id);
+    }
+
+    @GetMapping("/actividad/{idActividad}")
+    public List<Comentario> getComentariosByActividad(@PathVariable Long idActividad) {
+        return comentarioService.getComentariosByActividadId(idActividad);
     }
 }
 
