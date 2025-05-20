@@ -125,6 +125,28 @@ Imagen de Diagrama uml
   - Relación con Usuario (muchos a uno).
   - Relación con Actividad (muchos a uno).
 
+**Equipamiento**
+- id_equipamiento (PK)
+- nombre
+- tipo
+- descripcion
+- imagen
+- Relaciones:
+    - Relación con ActividadEquipamiento (uno a muchos).
+
+**ActividadEquipamiento**
+- id (PK)
+- actividad_id (FK a Actividad)
+- equipamiento_id (FK a Equipamiento)
+- cantidad
+- Relaciones:
+    - Relación con Actividad (muchos a uno).
+    - Relación con Equipamiento (muchos a uno).
+
+
+
+
+
 ### Creación de base de datos
 ```sql
 CREATE TABLE Usuario (
@@ -182,6 +204,24 @@ CREATE TABLE UsuarioActividad (
     FOREIGN KEY (actividad_id) REFERENCES Actividad(id_actividad) ON DELETE CASCADE,
     UNIQUE (usuario_id, actividad_id)
 );
+
+CREATE TABLE Equipamiento (
+  id_equipamiento BIGINT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  tipo VARCHAR(50),     -- p.ej. “seguridad”, “deporte”, “montaña”
+  descripcion TEXT,
+  imagen VARCHAR(255)   -- foto o icono
+);
+
+CREATE TABLE ActividadEquipamiento (
+  id_actividad_equip BIGINT AUTO_INCREMENT PRIMARY KEY,
+  actividad_id BIGINT NOT NULL,
+  equipamiento_id BIGINT NOT NULL,
+  cantidad INT DEFAULT 1,  -- opcional: número de unidades necesarias
+  FOREIGN KEY (actividad_id) REFERENCES Actividad(id_actividad) ON DELETE CASCADE,
+  FOREIGN KEY (equipamiento_id) REFERENCES Equipamiento(id_equipamiento) ON DELETE CASCADE,
+  UNIQUE (actividad_id, equipamiento_id)
+);
 ```
 
 ### Documentación del Modelo de Datos
@@ -224,6 +264,27 @@ CREATE TABLE UsuarioActividad (
 | fecha         | Date | No nulo |
 | id_usuario    | Int | Relación con Usuario |
 | id_actividad  | Int | Relación con Actividad |
+
+### Equipamiento
+
+| Atributo         | Tipo de Dato | Restricciones |
+|------------------|--------------|----------------|
+| id_equipamiento | BIGINT     | Auto-generado, clave primaria |
+| nombre          | VARCHAR(100) | No nulo |
+| tipo            | VARCHAR(50)  | Opcional, por ejemplo: "seguridad", "deporte", "montaña" |
+| descripcion     | TEXT         | Opcional |
+| imagen          | VARCHAR(255) | URL de la imagen o icono |
+
+
+### ActividadEquipamiento
+
+| Atributo             | Tipo de Dato | Restricciones                                           |
+|----------------------|--------------|----------------------------------------------------------|
+| id_actividad_equip | BIGINT     | Auto-generado, clave primaria                           |
+| actividad_id       | BIGINT     | Clave foránea a `Actividad`, no nulo                    |
+| equipamiento_id    | BIGINT     | Clave foránea a `Equipamiento, no nulo                 |
+| cantidad           | INT`        | Opcional, por defecto 1 (unidades necesarias)           |
+
 
 
 ---
@@ -323,6 +384,27 @@ Los requisitos pueden evolucionar según la retroalimentación de los usuarios, 
 - **Resultado esperado:**  
   - La actividad y los participantes reciben calificaciones y comentarios para mejorar la experiencia.
 
+### Caso de Uso 6: Gestión de Equipamiento de Actividad  
+- **Actor:** Usuario registrado (organizador de la actividad)  
+- **Objetivo:** Añadir, editar o eliminar equipamiento asociado a una actividad  
+- **Flujo principal:**  
+  1. El usuario accede a la pantalla de gestión de equipamiento para una actividad específica (`Equipamiento Actividad {{ actividadId }}`).  
+  2. Visualiza una lista editable con el nombre, tipo y descripción de cada elemento de equipamiento.  
+  3. Para **editar** un ítem existente:  
+     - Modifica directamente los campos en la lista.  
+     - Pulsa el botón con el icono de guardar (`save-outline`) para guardar los cambios.  
+  4. Para **eliminar** un ítem:  
+     - Pulsa el botón de eliminar (`trash-outline`).  
+  5. Para **añadir** un nuevo equipamiento:  
+     - Rellena el formulario inferior con los campos: nombre, tipo y descripción.  
+     - Pulsa el botón de añadir (`add-outline`) para agregarlo a la lista.  
+
+- **Flujo alternativo:**  
+  - Si falta algún campo obligatorio (nombre o tipo), se impide el guardado o añadido hasta que se complete.  
+  - Si ocurre un error de conexión al guardar o eliminar, se muestra un mensaje de error.  
+
+- **Resultado esperado:**  
+  - El equipamiento queda correctamente asociado a la actividad, permitiendo su edición o eliminación, y reflejando los cambios en la base de datos.
 ---
 
 ## 5. Descripción del Funcionamiento y Especificaciones Técnicas
@@ -399,6 +481,30 @@ Esta API está diseñada para gestionar actividades deportivas y conectar usuari
 | POST    | `/`      | Crea un nuevo comentario |
 | PUT     | `/{id}`  | Actualiza un comentario existente |
 | DELETE  | `/{id}`  | Borra un comentario por su ID |
+
+
+### 2.5. Endpoints de Equipamiento  
+**Base URL:** `/api/equipamientos`
+
+| Método | Endpoint      | Descripción                               |
+|--------|---------------|-------------------------------------------|
+| GET    | `/`           | Obtiene la lista de todos los equipamientos |
+| GET    | `/{id}`       | Obtiene un equipamiento por su ID        |
+| POST   | `/`           | Crea un nuevo equipamiento               |
+| PUT    | `/{id}`       | Actualiza un equipamiento existente      |
+| DELETE | `/{id}`       | Elimina un equipamiento por su ID        |
+
+
+### 2.6. Endpoints de ActividadEquipamiento  
+**Base URL:** `/api/actividad-equipamientos`
+
+| Método | Endpoint                          | Descripción                                                        |
+|--------|-----------------------------------|--------------------------------------------------------------------|
+| GET    | `/por-actividad/{actividadId}`    | Obtiene los equipamientos asociados a una actividad específica    |
+| POST   | `/`                               | Crea una relación entre una actividad y un equipamiento (con cantidad) |
+| PUT    | `/{id}`                           | Actualiza solo la cantidad de un vínculo ya existente             |
+| DELETE | `/{id}`                           | Elimina la relación entre actividad y equipamiento                |
+
 
 ### Endpoints para Archivos
 **Base URL:** `/api/files`
@@ -709,6 +815,8 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 }
 ```
 
+
+
 ![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/25.png)
 
 #### Actualizar un comentario existente
@@ -724,6 +832,86 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/27.png)
 
 ![](https://github.com/raulJD13/Backend/blob/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/28.png)
+
+
+## Endpoints de Equipamiento
+
+### Obtener lista de equipamientos
+**Método:** GET  
+**Endpoint:** `/api/equipamientos`
+
+---
+
+### Obtener un equipamiento específico
+**Método:** GET  
+**Endpoint:** `/api/equipamientos/{id}`
+
+---
+
+### Crear un nuevo equipamiento
+**Método:** POST  
+**Endpoint:** `/api/equipamientos`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+  "nombre": "Chaleco salvavidas",
+  "tipo": "Seguridad",
+  "descripcion": "Chaleco para actividades acuáticas",
+  "imagen": "url-imagen.jpg"
+}
+```
+### Crear un nuevo equipamiento
+**Método:** PUT  
+**Endpoint:** `/api/equipamientos/{id}`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+   "nombre": "Chaleco salvavidas reforzado",
+  "tipo": "Seguridad",
+  "descripcion": "Versión reforzada del chaleco",
+  "imagen": "nueva-url-imagen.jpg"
+}
+```
+### Eliminar un equipamiento existente  
+**Método:** DELETE  
+**Endpoint:** `/api/equipamientos/{id}`
+
+---
+
+
+### Obtener lista de equipamiento asociado a una actividad  
+**Método:** GET  
+**Endpoint:** `/api/actividad-equipamientos/por-actividad/{actividadId}`
+
+---
+
+### Asociar un equipamiento a una actividad  
+**Método:** POST  
+**Endpoint:** `/api/actividad-equipamientos`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+  "actividad": { "id": 1 },
+  "equipamiento": { "id": 7 },
+  "cantidad": 1
+}
+```
+### Actualizar la cantidad de equipamiento en una actividad  
+**Método:** PUT  
+**Endpoint:** `/api/actividad-equipamientos/{id}`
+
+**Cuerpo de la solicitud (JSON):**
+```json
+{
+  "cantidad": 5
+}
+```
+### Eliminar equipamiento de una actividad  
+**Método:** DELETE  
+**Endpoint:** `/api/actividad-equipamientos/{id}`
 
 ---
 
