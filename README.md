@@ -906,6 +906,9 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 **Método:** GET  
 **Endpoint:** `/api/actividad-equipamientos/por-actividad/{actividadId}`
 
+![Actividad Equipamiento Get](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20get.png)
+
+
 ---
 
 ### Asociar un equipamiento a una actividad  
@@ -920,6 +923,14 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
   "cantidad": 1
 }
 ```
+
+![Actividad Equipamiento post](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20post%201.png
+)
+
+![Actividad Equipamiento post](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20post%202.png
+)
+
+
 ### Actualizar la cantidad de equipamiento en una actividad  
 **Método:** PUT  
 **Endpoint:** `/api/actividad-equipamientos/{id}`
@@ -930,11 +941,26 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
   "cantidad": 5
 }
 ```
+
+![Actividad Equipamiento put](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20put%201.png
+)
+
+![Actividad Equipamiento put](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20putt%202.png
+)
+
+
 ### Eliminar equipamiento de una actividad  
 **Método:** DELETE  
 **Endpoint:** `/api/actividad-equipamientos/{id}`
 
 ---
+
+![Actividad Equipamiento delete](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20delete%201.png
+)
+
+![Actividad Equipamiento delete](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20delete%202.png
+)
+
 
 Este documento cubre la documentación esencial para el backend de la API. Para más detalles, consultar el repositorio oficial.
 
