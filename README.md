@@ -62,6 +62,40 @@ El modelo de datos se basa en la gestión de usuarios, actividades y deportes, e
 - Actividad (1) ↔ (M) Comentario
 - Actividad (1) ↔ (M) ActividadEquipamiento (M) ↔ (1) Equipamiento
 
+- **Usuario:**  
+  - Atributos: `id_usuario`, `email`, `localizacion`, `contraseña`, `foto_perfil`, `foto_fondo_perfil`.  
+  - **Relación:** Un **Usuario** tiene una relación 1 a M con **UsuarioActividad**.
+
+- **Deporte:**  
+  - Atributos: `id_deporte`, `nombre`, `tipo` (ENUM: 'agua', 'tierra'), `imagen`.  
+  - **Relación:** Un **Deporte** se relaciona 1 a M con **Actividad**.
+
+- **Actividad:**  
+  - Atributos: `id_actividad`, `nombre`, `valoracion`, `precio`, `descripcion`, `tendencia`, `evento`, `bookmark`, `favoritas`, `unido`, `latitud`, `longitud`, `dificultad` (ENUM: 'facil', 'intermedia', 'dificil'), `imagen`, `disponibilidad`, `id_deporte`.  
+  - **Relaciones:**  
+    - Relación 1 a M con **Comentario**.  
+    - Relación N a N con **Usuario** a través de **UsuarioActividad**.  
+    - Relación N a N con **Equipamiento** a través de **ActividadEquipamiento**.
+
+- **Comentario:**  
+  - Atributos: `id_comentario`, `texto`, `fecha` (con valor por defecto `CURRENT_TIMESTAMP`), `id_usuario`, `id_actividad`.  
+  - **Relación:** Cada **Comentario** se asocia a un **Usuario** y a una **Actividad** (relación 1 a M).
+
+- **UsuarioActividad:**  
+  - Atributos: `id_usuario_actividad`, `usuario_id`, `actividad_id`, `fecha_inscripcion` (por defecto `CURRENT_TIMESTAMP`).  
+  - **Restricción:** Clave única compuesta por `usuario_id` y `actividad_id` para evitar inscripciones duplicadas.  
+  - **Relación:** Tabla intermedia entre **Usuario** y **Actividad**.
+
+- **Equipamiento:**  
+  - Atributos: `id_equipamiento`, `nombre`, `tipo` (por ejemplo: “seguridad”, “deporte”, “montaña”), `descripcion`, `imagen`.  
+  - **Relación:** Se vincula con **Actividad** mediante la tabla intermedia **ActividadEquipamiento**.
+
+- **ActividadEquipamiento:**  
+  - Atributos: `id_actividad_equip`, `actividad_id`, `equipamiento_id`, `cantidad` (opcional, con valor por defecto 1).  
+  - **Restricción:** Clave única compuesta por `actividad_id` y `equipamiento_id`.  
+  - **Relación:** Tabla intermedia entre **Actividad** y **Equipamiento**.
+
+
 #### Diagrama UML Actualizado
 
 Imagen de Diagrama uml
