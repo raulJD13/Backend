@@ -1713,6 +1713,9 @@ Las tareas se organizan en el backlog del proyecto, donde se priorizan según su
 
 ![](https://github.com/raulJD13/Backend/blob/37f223461334e0a30ae81e5f3f3c16af6f3a43ee/Images-Github/Captura%20de%20pantalla%202025-02-16%20a%20las%2015.50.35.png)
 
+![Kanban](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/kanbam.png)
+
+
 Cada tarea tiene un estimado de esfuerzo, generalmente calculado en horas o puntos de historia. Esto permite a los desarrolladores gestionar su tiempo y garantizar que se cumplan los objetivos del sprint.
 
 ---
