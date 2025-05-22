@@ -839,7 +839,8 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ### Obtener lista de equipamientos
 **Método:** GET  
 **Endpoint:** `/api/equipamientos`
-asdc
+
+
 ![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20get.png)
 
 ---
@@ -847,6 +848,7 @@ asdc
 ### Obtener un equipamiento específico
 **Método:** GET  
 **Endpoint:** `/api/equipamientos/{id}`
+falta
 
 ---
 
@@ -863,6 +865,12 @@ asdc
   "imagen": "url-imagen.jpg"
 }
 ```
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20post%201.png)
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20post%202.png)
+
+
 ### Crear un nuevo equipamiento
 **Método:** PUT  
 **Endpoint:** `/api/equipamientos/{id}`
@@ -876,9 +884,18 @@ asdc
   "imagen": "nueva-url-imagen.jpg"
 }
 ```
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20put%201.png)
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20put%202.png)
+
+
 ### Eliminar un equipamiento existente  
 **Método:** DELETE  
 **Endpoint:** `/api/equipamientos/{id}`
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20delete%201.png)
+
 
 ---
 
