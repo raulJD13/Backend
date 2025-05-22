@@ -53,7 +53,7 @@ El modelo de datos se basa en la gestión de usuarios, actividades y deportes, e
 
 #### Esquema de Entidad Relación
 
-![Esquema de Entidad Relación](https://github.com/raulJD13/Backend/blob/f5bb77210a058bf36bee2c9979ed985e3f059e23/Images-Github/Captura%de%pantalla%2025-05-20%112729.png)
+![Esquema de Entidad Relación](https://raw.githubusercontent.com/raulJD13/Backend/f5bb77210a058bf36bee2c9979ed985e3f059e23/Images-Github/Captura%20de%20pantalla%202025-05-20%20112729.png)
 
 **Diagrama básico MER:**
 - Usuario (1) ↔ (M) UsuarioActividad (M) ↔ (1) Actividad
