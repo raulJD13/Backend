@@ -945,7 +945,7 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ![Actividad Equipamiento put](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20put%201.png
 )
 
-![Actividad Equipamiento put](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20putt%202.png
+![Actividad Equipamiento put](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20put%202.png
 )
 
 
@@ -955,7 +955,7 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 
 ---
 
-![Actividad Equipamiento delete](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20delete%201.png
+![Actividad Equipamiento delete](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20delete.png
 )
 
 ![Actividad Equipamiento delete](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/actividad%20equipamiento%20delete%202.png
