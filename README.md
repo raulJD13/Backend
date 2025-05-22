@@ -839,7 +839,7 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ### Obtener lista de equipamientos
 **Método:** GET  
 **Endpoint:** `/api/equipamientos`
-
+asdc
 ![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/2ed0f8aab1b6092c4344cddf597b7e58b4d4f718/Images-Github/equipamiento%20get.png)
 
 ---
