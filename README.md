@@ -848,7 +848,9 @@ Este manual proporciona una guía clara tanto para la instalación de la aplicac
 ### Obtener un equipamiento específico
 **Método:** GET  
 **Endpoint:** `/api/equipamientos/{id}`
-falta
+
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20get%20id.png)
+
 
 ---
 
