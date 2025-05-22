@@ -871,7 +871,7 @@ falta
 ![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20post%202.png)
 
 
-### Crear un nuevo equipamiento
+### Editar un nuevo equipamiento
 **Método:** PUT  
 **Endpoint:** `/api/equipamientos/{id}`
 
@@ -894,7 +894,7 @@ falta
 **Método:** DELETE  
 **Endpoint:** `/api/equipamientos/{id}`
 
-![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamiento%20delete%201.png)
+![Equipamiento](https://raw.githubusercontent.com/raulJD13/Backend/main/Images-Github/equipamientos%20delete%201.png)
 
 
 ---
