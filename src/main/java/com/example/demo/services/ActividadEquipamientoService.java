@@ -15,6 +15,10 @@ public class ActividadEquipamientoService {
     @Autowired
     private ActividadEquipamientoRepository repository;
 
+    public List<ActividadEquipamiento> findByActividadId(Long actividadId) {
+        return repository.findAllByActividad_IdActividad(actividadId);
+    }
+
     public List<ActividadEquipamiento> findAll() {
         return repository.findAll();
     }
@@ -29,8 +33,5 @@ public class ActividadEquipamientoService {
 
     public void deleteById(Long id) {
         repository.deleteById(id);
-    }
-    public List<ActividadEquipamiento> findByActividadId(Long actividadId) {
-        return repository.findAllByActividad_IdActividad(actividadId);
     }
 }

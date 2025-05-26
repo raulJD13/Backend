@@ -31,10 +31,14 @@ public class Usuario {
 
     @Column
     private String fotoFondoPerfil;
+    
 
-    @Column(nullable = false)
+    @Column(nullable = false,length = 1024)
     private String token;
 
+    @Column(nullable = false)
+    private String username;
+    
     // Relación muchos a muchos con Actividad
     @ManyToMany
     @JsonIgnore
@@ -50,13 +54,14 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String email, String localizacion, String contraseña, String fotoPerfil, String fotoFondoPerfil, String token) {
+    public Usuario(String email, String localizacion, String contraseña, String fotoPerfil, String fotoFondoPerfil, String token,String username) {
         this.email = email;
         this.localizacion = localizacion;
         this.contraseña = contraseña;
         this.fotoPerfil = fotoPerfil;
         this.fotoFondoPerfil = fotoFondoPerfil;
         this.token = token;
+        this.username = username;
     }
 
     public Long getIdUsuario() {
@@ -117,6 +122,14 @@ public class Usuario {
 
     public Set<Actividad> getActividades() {
         return actividades;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setActividades(Set<Actividad> actividades) {

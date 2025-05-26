@@ -40,7 +40,9 @@ public class Actividad {
     @Enumerated(EnumType.STRING)
     private Dificultad dificultad;
 
+    @Column(columnDefinition = "LONGTEXT")
     private String imagen;
+
     private Boolean disponibilidad = true;
 
     @ManyToOne
@@ -49,19 +51,20 @@ public class Actividad {
 
     @ManyToMany
     @JoinTable(
-        name = "usuarioactividad",
-        joinColumns = @JoinColumn(name = "actividad_id"),
-        inverseJoinColumns = @JoinColumn(name = "usuario_id")
+            name = "usuarioactividad",
+            joinColumns = @JoinColumn(name = "actividad_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
     )
     private Set<Usuario> usuarios;
 
-    public Actividad() {}
+    public Actividad() {
+    }
 
     // Constructor con todos los campos
     public Actividad(Long idActividad, String nombre, Float valoracion, Double precio, String descripcion,
-                     Boolean tendencia, Boolean evento, Boolean bookmark, Boolean favoritas, Boolean unido,
-                     Double latitud, Double longitud, Dificultad dificultad, String imagen, Boolean disponibilidad,
-                     Deporte deporte, Set<Usuario> usuarios) {
+            Boolean tendencia, Boolean evento, Boolean bookmark, Boolean favoritas, Boolean unido,
+            Double latitud, Double longitud, Dificultad dificultad, String imagen, Boolean disponibilidad,
+            Deporte deporte, Set<Usuario> usuarios) {
         this.idActividad = idActividad;
         this.nombre = nombre;
         this.valoracion = valoracion;
@@ -86,54 +89,139 @@ public class Actividad {
     }
 
     // Getters y setters
-    public Long getIdActividad() { return idActividad; }
-    public void setIdActividad(Long idActividad) { this.idActividad = idActividad; }
+    public Long getIdActividad() {
+        return idActividad;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setIdActividad(Long idActividad) {
+        this.idActividad = idActividad;
+    }
 
-    public Float getValoracion() { return valoracion; }
-    public void setValoracion(Float valoracion) { this.valoracion = valoracion; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public Double getPrecio() { return precio; }
-    public void setPrecio(Double precio) { this.precio = precio; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-    public String getDescripcion() { return descripcion; }
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public Float getValoracion() {
+        return valoracion;
+    }
 
-    public Boolean getTendencia() { return tendencia; }
-    public void setTendencia(Boolean tendencia) { this.tendencia = tendencia; }
+    public void setValoracion(Float valoracion) {
+        this.valoracion = valoracion;
+    }
 
-    public Boolean getEvento() { return evento; }
-    public void setEvento(Boolean evento) { this.evento = evento; }
+    public Double getPrecio() {
+        return precio;
+    }
 
-    public Boolean getBookmark() { return bookmark; }
-    public void setBookmark(Boolean bookmark) { this.bookmark = bookmark; }
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
 
-    public Boolean getFavoritas() { return favoritas; }
-    public void setFavoritas(Boolean favoritas) { this.favoritas = favoritas; }
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-    public Boolean getUnido() { return unido; }
-    public void setUnido(Boolean unido) { this.unido = unido; }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-    public Double getLatitud() { return latitud; }
-    public void setLatitud(Double latitud) { this.latitud = latitud; }
+    public Boolean getTendencia() {
+        return tendencia;
+    }
 
-    public Double getLongitud() { return longitud; }
-    public void setLongitud(Double longitud) { this.longitud = longitud; }
+    public void setTendencia(Boolean tendencia) {
+        this.tendencia = tendencia;
+    }
 
-    public Dificultad getDificultad() { return dificultad; }
-    public void setDificultad(Dificultad dificultad) { this.dificultad = dificultad; }
+    public Boolean getEvento() {
+        return evento;
+    }
 
-    public String getImagen() { return imagen; }
-    public void setImagen(String imagen) { this.imagen = imagen; }
+    public void setEvento(Boolean evento) {
+        this.evento = evento;
+    }
 
-    public Boolean getDisponibilidad() { return disponibilidad; }
-    public void setDisponibilidad(Boolean disponibilidad) { this.disponibilidad = disponibilidad; }
+    public Boolean getBookmark() {
+        return bookmark;
+    }
 
-    public Deporte getDeporte() { return deporte; }
-    public void setDeporte(Deporte deporte) { this.deporte = deporte; }
+    public void setBookmark(Boolean bookmark) {
+        this.bookmark = bookmark;
+    }
 
-    public Set<Usuario> getUsuarios() { return usuarios; }
-    public void setUsuarios(Set<Usuario> usuarios) { this.usuarios = usuarios; }
+    public Boolean getFavoritas() {
+        return favoritas;
+    }
+
+    public void setFavoritas(Boolean favoritas) {
+        this.favoritas = favoritas;
+    }
+
+    public Boolean getUnido() {
+        return unido;
+    }
+
+    public void setUnido(Boolean unido) {
+        this.unido = unido;
+    }
+
+    public Double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
+
+    public Double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
+    }
+
+    public Dificultad getDificultad() {
+        return dificultad;
+    }
+
+    public void setDificultad(Dificultad dificultad) {
+        this.dificultad = dificultad;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public Boolean getDisponibilidad() {
+        return disponibilidad;
+    }
+
+    public void setDisponibilidad(Boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
+    }
+
+    public Deporte getDeporte() {
+        return deporte;
+    }
+
+    public void setDeporte(Deporte deporte) {
+        this.deporte = deporte;
+    }
+
+    public Set<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Set<Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
 }

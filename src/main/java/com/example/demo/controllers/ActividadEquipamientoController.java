@@ -22,6 +22,7 @@ import com.example.demo.repository.EquipamientoRepository;
 import com.example.demo.services.ActividadEquipamientoService;
 
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/api/actividad-equipamientos")
@@ -32,6 +33,9 @@ public class ActividadEquipamientoController {
     private final ActividadRepository actividadRepo;
     private final EquipamientoRepository equipRepo;
 
+    @Autowired
+    private ActividadEquipamientoService service;
+    
     public ActividadEquipamientoController(
             ActividadEquipamientoService aeService,
             ActividadRepository actividadRepo,
@@ -43,7 +47,7 @@ public class ActividadEquipamientoController {
 
     @GetMapping("/por-actividad/{actividadId}")
     public List<ActividadEquipamiento> findByActividad(@PathVariable Long actividadId) {
-        return aeService.findByActividadId(actividadId);
+        return service.findByActividadId(actividadId);
     }
 
     @PostMapping
@@ -94,5 +98,5 @@ public class ActividadEquipamientoController {
         if (c == null) throw new IllegalArgumentException(parent + "." + child + " obligatorio");
         return c.toString();
     }
+    
 }
-

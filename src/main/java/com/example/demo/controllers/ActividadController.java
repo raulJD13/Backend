@@ -49,4 +49,3 @@ public class ActividadController {
         actividadService.deleteActividad(id);
     }
 }
-

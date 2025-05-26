@@ -9,5 +9,5 @@ import com.example.demo.models.ActividadEquipamiento;
 
 @Repository
 public interface ActividadEquipamientoRepository extends JpaRepository<ActividadEquipamiento, Long> {
-	List<ActividadEquipamiento> findAllByActividad_IdActividad(Long actividadId);
+    List<ActividadEquipamiento> findAllByActividad_IdActividad(Long actividadId);
 }

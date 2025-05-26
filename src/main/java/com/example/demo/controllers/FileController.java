@@ -48,7 +48,7 @@ public class FileController {
             Files.write(filePath, file.getBytes());
 
             // Devolver URL accesible del archivo en formato JSON
-            String fileUrl = "http://localhost:8080/uploads/" + fileName;
+            String fileUrl = "http://localhost:8083/uploads/" + fileName;
             return ResponseEntity.ok(Map.of("fileUrl", fileUrl));
         } catch (IOException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

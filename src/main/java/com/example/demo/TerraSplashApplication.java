@@ -1,5 +1,3 @@
-
-
 package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
@@ -28,29 +26,30 @@ public class TerraSplashApplication {
 
     // Configuración de seguridad
     @Bean
-public SecurityFilterChain securityFilterChain(HttpSecurity http, JWTAuthorizationFilter jwtAuthorizationFilter) throws Exception {
-    http
-            .cors(cors -> cors.configurationSource(request -> {
-        var corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
-        corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        corsConfig.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
-        corsConfig.setAllowCredentials(true);
-        return corsConfig;
-    }))
-        .csrf(csrf -> csrf.disable()) // Deshabilita CSRF para APIs REST
-        .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No usa sesiones
-        .authorizeHttpRequests(auth -> auth
-            .requestMatchers(HttpMethod.POST, "/api/usuarios/login").permitAll()
-            .requestMatchers(HttpMethod.POST, "/api/usuarios").permitAll()
-            .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
-            .anyRequest().authenticated() // Exige autenticación para cualquier otra solicitud
-        )
-        .addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class); // Usa el filtro con clave inyectada
-
-    return http.build();
-}
-
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+            JWTAuthorizationFilter jwtFilter) throws Exception {
+        http
+                .cors(cors -> cors.configurationSource(request -> {
+            var cfg = new CorsConfiguration();
+            cfg.setAllowedOrigins(Arrays.asList("http://localhost:4200", "http://localhost:8100"));
+            cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+            cfg.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type"));
+            cfg.setAllowCredentials(true);
+            return cfg;
+        }))
+                .csrf(csrf -> csrf.disable())
+                .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                // login y registro
+                .requestMatchers(HttpMethod.POST, "/api/usuarios/login", "/api/usuarios").permitAll()
+                // servir imágenes desde /uploads/**
+                .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
+                // el resto, con JWT
+                .anyRequest().authenticated()
+                )
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
+    }
 
     // Bean de JWTAuthorizationFilter para inyectar la clave secreta
     @Bean

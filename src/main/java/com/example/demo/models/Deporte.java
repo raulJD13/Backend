@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.*;
@@ -23,12 +24,13 @@ public class Deporte {
     private String nombre;
 
     @Column(nullable = false)
-    @Pattern(regexp = "^[A-Za-zÀ-ÿ\\s]+$", message = "El tipo solo puede contener letras y espacios")
+    @Pattern(regexp = "^[A-Za-zÀ-ÿ\s]+$", message = "El tipo solo puede contener letras y espacios")
     private String tipo;
 
     private String imagen;
 
     @OneToMany(mappedBy = "deporte", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Actividad> actividades = new ArrayList<>();
 
     public Deporte() {}

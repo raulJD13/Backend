@@ -46,8 +46,9 @@ class UsuarioControllerTest {
 
     @BeforeEach
     void setUp() {
-        usuario1 = new Usuario("user1@example.com", "Madrid", "password123", "foto1.jpg", "fondo1.jpg", "token1");
-        usuario2 = new Usuario("user2@example.com", "Barcelona", "password456", "foto2.jpg", "fondo2.jpg", "token2");
+        // Actualizamos las instancias incluyendo el valor para "username"
+        usuario1 = new Usuario("user1@example.com", "Madrid", "password123", "foto1.jpg", "fondo1.jpg", "token1", "user1");
+        usuario2 = new Usuario("user2@example.com", "Barcelona", "password456", "foto2.jpg", "fondo2.jpg", "token2", "user2");
 
         // Generamos una clave secreta para JWT (simulada para los tests)
         secretKey = Keys.hmacShaKeyFor("Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJkZW1vSldUIiwic3ViIjoicmF1bEB0ZXN0LmNvbSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE3Mzk4OTMyMjIsImV4cCI6MTczOTg5MzgyMn0.pm8Z_EQVV__s8Og41OyPwlKS3CiAM--_nEyTEPGtub9_0_CHk9XnX9MrIELWmLflYMp4OTTwVBpwfVbEc4XqDw".getBytes(StandardCharsets.UTF_8));
@@ -75,13 +76,12 @@ class UsuarioControllerTest {
         verify(usuarioService, times(1)).getUsuarioById(1L);
     }
 
-
-
     @Test
     void testUpdateUsuario() {
         when(usuarioService.updateUsuario(eq(1L), any(Usuario.class))).thenReturn(usuario1);
 
-        Usuario usuarioActualizado = new Usuario("updated@example.com", "Valencia", "passwordUpdated", "fotoUpdated.jpg", "fondoUpdated.jpg", "tokenUpdated");
+        // Se añade el parámetro "username" al crear el objeto a actualizar
+        Usuario usuarioActualizado = new Usuario("updated@example.com", "Valencia", "passwordUpdated", "fotoUpdated.jpg", "fondoUpdated.jpg", "tokenUpdated", "updated");
         Usuario resultado = usuarioController.updateUsuario(1L, usuarioActualizado);
 
         assertNotNull(resultado);
@@ -97,8 +97,6 @@ class UsuarioControllerTest {
 
         verify(usuarioService, times(1)).deleteUsuario(1L);
     }
-
-    
 
     @Test
     void testLoginFailure() {
