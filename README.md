@@ -4,7 +4,7 @@
 1. Introducción / Descripción
 2. Diagramas y Modelo de Datos
 3. Requisitos de Usuario
-4. Casos de Usod
+4. Casos de Uso
 5. Descripción del Funcionamiento y Especificaciones Técnicas
 6. Interfaces
     - Diseño Inicial: Mokups y Prototipado
